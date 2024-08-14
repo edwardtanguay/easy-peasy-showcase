@@ -1,9 +1,10 @@
+import { useStoreState } from "easy-peasy"
 
 export const PageWelcome = () => {
-
-	const message = 'temp message'
+	// const { flashcards } = useStoreState((state) => state.flashcards);
+	const flashcards = []
 
 	return (
-		<p>{message}</p>
+		<p>There are {flashcards.length} flashcards.</p>
 	)
 }

@@ -6,6 +6,8 @@ import { PageWelcome } from "./pages/PageWelcome.tsx";
 import { PageInfo } from "./pages/PageInfo.tsx";
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
+import { StoreProvider } from 'easy-peasy';
+import { store } from './store.ts';
 
 const router = createBrowserRouter([
 	{
@@ -34,5 +36,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<RouterProvider router={router} />
+	<StoreProvider store={store}>
+		<RouterProvider router={router} />
+	</StoreProvider>
 );
