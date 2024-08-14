@@ -4,8 +4,12 @@ import { StoreModel } from './types';
 export const store = createStore<StoreModel>({
   flashcards: [
     {
-      front: "fff",
-      back: "bbb"
+      front: "the paper",
+      back: "das Papier"
+    },
+    {
+      front: "the fork",
+      back: "die Gabel"
     }
   ],
 });
