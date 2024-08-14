@@ -1,8 +1,7 @@
-import { useContext } from "react"
-import { AppContext } from "../AppContext"
 
 export const PageWelcome = () => {
-	const { message } = useContext(AppContext);
+
+	const message = 'temp message'
 
 	return (
 		<p>{message}</p>
