@@ -6,6 +6,10 @@
 	h1 {
 		font-variant: small-caps;
 	}
+	button {
+		@apply rounded bg-slate-500 hover:bg-blue-700 pt-0 pb-1 px-2 text-white;
+	}
+	
 }
 
 a.active {

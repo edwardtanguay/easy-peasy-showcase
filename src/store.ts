@@ -12,9 +12,9 @@ export type StoreModel = {
 export const store = createStore<StoreModel>({
 	flashcards,
 	deleteFlashcard: action((state, payload) => {
-		state.flashcards = flashcards.filter((m) => m.id != payload);
+		const index = state.flashcards.findIndex((m) => m.id === payload);
+		if (index !== -1) {
+			state.flashcards.splice(index, 1);
+		}
 	}),
-	// deleteFlashcard: action((state: State<StoreModel>, payload: number) => {
-	// 	state.flashcards = flashcards.filter((m) => m.id != payload);
-	// }),
 });
