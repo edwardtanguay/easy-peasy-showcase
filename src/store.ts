@@ -1,23 +1,13 @@
 import { createStore } from "easy-peasy";
 import { Flashcard } from "./types";
+import _db from "./data/db.json";
+
+const flashcards = _db.flashcards;
 
 export type StoreModel = {
 	flashcards: Flashcard[];
-}
+};
 
 export const store = createStore<StoreModel>({
-	flashcards: [
-		{
-			front: "the paper",
-			back: "das Papier",
-		},
-		{
-			front: "the fork",
-			back: "die Gabel",
-		},
-		{
-			front: "the knife",
-			back: "das Messer",
-		},
-	],
+	flashcards,
 });

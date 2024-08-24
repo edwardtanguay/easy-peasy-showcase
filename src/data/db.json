@@ -1,0 +1,20 @@
+{
+	"flashcards": [
+		{
+			"front": "the paper",
+			"back": "das Papier"
+		},
+		{
+			"front": "the fork",
+			"back": "die Gabel"
+		},
+		{
+			"front": "the knife",
+			"back": "das Messer"
+		},
+		{
+			"front": "the water",
+			"back": "das Wasser"
+		}
+	]
+}
