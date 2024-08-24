@@ -1,4 +1,5 @@
 import { useStoreState, useStoreActions } from "../hooks";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageWelcome = () => {
 
@@ -11,7 +12,9 @@ export const PageWelcome = () => {
 			<ul className="list-disc ml-6">
 				{flashcards.map((flashcard, index) => {
 					return (
-						<li className="mt-2" key={index}>{flashcard.front} - {flashcard.back} <button onClick={() => deleteFlashcard(flashcard.id)}>delete</button></li>
+						<li>
+						<div className="mt-2 flex gap-2" key={index}>{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcard(flashcard.id)}/></div>
+						</li>
 					)
 				})}
 			</ul>
