@@ -1,5 +1,9 @@
 import { createStore } from "easy-peasy";
-import { StoreModel } from "./types";
+import { Flashcard } from "./types";
+
+export type StoreModel = {
+	flashcards: Flashcard[];
+}
 
 export const store = createStore<StoreModel>({
 	flashcards: [
