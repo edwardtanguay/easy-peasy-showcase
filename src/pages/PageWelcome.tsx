@@ -1,9 +1,12 @@
-import { useStoreState } from "easy-peasy"
-import { Flashcard } from "../types";
-import { StoreModel } from "../store";
+import { useStoreState } from "../hooks";
+// import { Flashcard } from "../types";
+// import { StoreModel } from "../store";
 
 export const PageWelcome = () => {
-	const flashcards = useStoreState<StoreModel, Flashcard[]>((state) => state.flashcards);
+
+	const flashcards = useStoreState((state) => state.flashcards);
+	// const flashcards = useStoreState<StoreModel, Flashcard[]>((state) => state.flashcards);
+	// const deleteFlashcard = useStoreActions((actions) => actions.deleteFlashcard);
 	// const deleteFlashcard = useStoreActions<StoreModel, (id: number) => void>;
 
 	return (

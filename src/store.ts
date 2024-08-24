@@ -1,4 +1,4 @@
-import { Action, action, createStore, State } from "easy-peasy";
+import { Action, action, createStore } from "easy-peasy";
 import { Flashcard } from "./types";
 import _db from "./data/db.json";
 
@@ -11,7 +11,10 @@ export type StoreModel = {
 
 export const store = createStore<StoreModel>({
 	flashcards,
-	deleteFlashcard: action((state: State<StoreModel>, payload: number) => {
+	deleteFlashcard: action((state, payload) => {
 		state.flashcards = flashcards.filter((m) => m.id != payload);
 	}),
+	// deleteFlashcard: action((state: State<StoreModel>, payload: number) => {
+	// 	state.flashcards = flashcards.filter((m) => m.id != payload);
+	// }),
 });

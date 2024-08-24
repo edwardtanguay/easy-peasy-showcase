@@ -24,6 +24,11 @@
       "front": "the street",
       "back": "die Straße",
       "id": 6
+    },
+    {
+      "front": "the pen",
+      "back": "der Stift",
+      "id": 7
     }
   ]
 }
