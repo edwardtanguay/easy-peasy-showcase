@@ -1,3 +1,4 @@
 @url = http://localhost:3760
 
 ## GET ALL FLASHCARDS
+GET {url}/flashcards
