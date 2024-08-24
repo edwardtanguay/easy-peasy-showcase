@@ -19,6 +19,11 @@
 			"id": 4,
 			"front": "the water",
 			"back": "das Wasser"
+		},
+		{
+			"id": 5,
+			"front": "the hose",
+			"back": "der Schlauch"
 		}
 	]
 }
