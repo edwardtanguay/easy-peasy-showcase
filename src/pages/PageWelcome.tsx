@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useStoreState, useStoreActions } from "../store/hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 

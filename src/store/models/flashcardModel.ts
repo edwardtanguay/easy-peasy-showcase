@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action, action, Thunk, thunk } from "easy-peasy";
 import { Flashcard } from "../../types";
-import _db from "../../data/db.json";
 import axios from "axios";
-const flashcards = _db.flashcards;
 
 export interface FlashcardModel {
 	flashcards: Flashcard[];
@@ -11,17 +9,22 @@ export interface FlashcardModel {
 
 	// actions
 	setTitle: Action<this, string>;
+	setFlashcards: Action<this, Flashcard[]>
 	deleteFlashcard: Action<this, number>;
 
 	// thunks
+	loadAllFlashcardsThunk: Thunk<this>;
 	deleteFlashcardThunk: Thunk<this, number>;
 }
 
 export const flashcardModel: FlashcardModel = {
 	title: "The Flashcards",
-	flashcards,
+	flashcards: [],
 	setTitle: action((state, title) => {
 		state.title = title;
+	}),
+	setFlashcards: action((state, flashcards) => {
+		state.flashcards = structuredClone(flashcards);
 	}),
 	deleteFlashcard: action((state, flashcardId) => {
 		const index = state.flashcards.findIndex((m) => m.id === flashcardId);
@@ -29,14 +32,27 @@ export const flashcardModel: FlashcardModel = {
 			state.flashcards.splice(index, 1);
 		}
 	}),
+	loadAllFlashcardsThunk: thunk(async (actions) => {
+		console.log('getting');
+		try {
+			const response = await axios.get(`http://localhost:3760/flashcards`);
+			if (response.status === 200) {
+				const flashcards: Flashcard[] =  response.data;
+				actions.setFlashcards(flashcards);
+			}
+		} catch (e: any) {
+			console.log(`ERROR: ${e.message}`);
+		}
+	}),
 	deleteFlashcardThunk: thunk(async (actions, flashcardId) => {
-		console.log("in thunk");
 		try {
 			const response = await axios.delete(
 				`http://localhost:3760/flashcards/${flashcardId}`
 			);
 			if (response.status === 200) {
-				console.log(`database deletion of id=${flashcardId} was successful`);
+				console.log(
+					`database deletion of id=${flashcardId} was successful`
+				);
 				actions.deleteFlashcard(flashcardId);
 			}
 		} catch (e: any) {
