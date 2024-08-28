@@ -12,8 +12,8 @@ export const PageWelcome = () => {
 		setTitle("new title");
 	}
 
-	const deleteTheFlashcard = async (flashcardId: number) => {
-		console.log('deleting ' + flashcardId);
+	const deleteTheFlashcard = (flashcardId: number) => {
+		(async () => {
 		try {
 			const response = await axios.delete(
 				`http://localhost:3760/flashcards/${flashcardId}`
@@ -24,6 +24,7 @@ export const PageWelcome = () => {
 		} catch (e: any) {
 			console.log(`ERROR: ${e.message}`);
 		}
+		})();
 	}
 
 	return (
