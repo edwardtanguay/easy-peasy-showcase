@@ -17,7 +17,7 @@ export const PageFlashcards = () => {
 					<ul className="list-disc ml-6">
 						{flashcards.map((flashcard, index) => {
 							return (
-								<li key={index}>
+								<li key={index} className={flashcard.deletingStatus === "inProcess" ? 'opacity-30' : ''}>
 									<div className="mt-2 flex gap-2">
 										{flashcard.dataItem.front} - {flashcard.dataItem.back}
 										{flashcard.deletingStatus === "inProcess" ? (
