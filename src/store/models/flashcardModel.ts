@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action, action, Thunk, thunk } from "easy-peasy";
-import { Flashcard, LoadingStatus } from "./types";
+import { Flashcard, ProcessStatus } from "../../types";
 import axios from "axios";
 import * as config from "../../config";
 
 export interface FlashcardModel {
 	flashcards: Flashcard[];
-	flashcardLoadingStatus: LoadingStatus;
+	flashcardLoadingStatus: ProcessStatus;
 
 	// actions
 	setFlashcards: Action<this, Flashcard[]>;
-	setFlashcardLoadingStatus: Action<this, LoadingStatus>;
+	setFlashcardLoadingStatus: Action<this, ProcessStatus>;
 	deleteFlashcard: Action<this, number>;
 
 	// thunks
@@ -20,7 +20,7 @@ export interface FlashcardModel {
 
 export const flashcardModel: FlashcardModel = {
 	flashcards: [],
-	flashcardLoadingStatus: "loading",
+	flashcardLoadingStatus: "inProcess",
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
 	}),
@@ -34,7 +34,7 @@ export const flashcardModel: FlashcardModel = {
 		}
 	}),
 	loadAllFlashcardsThunk: thunk((actions) => {
-		actions.setFlashcardLoadingStatus("loading");
+		actions.setFlashcardLoadingStatus("inProcess");
 		setTimeout(async () => {
 			try {
 				const response = await axios.get(
@@ -44,7 +44,7 @@ export const flashcardModel: FlashcardModel = {
 					const flashcards: Flashcard[] = response.data;
 					actions.setFlashcards(flashcards);
 				}
-				actions.setFlashcardLoadingStatus("loaded");
+				actions.setFlashcardLoadingStatus("finished");
 			} catch (e: any) {
 				console.log(`ERROR: ${e.message}`);
 				actions.setFlashcardLoadingStatus("failed");

@@ -9,7 +9,7 @@ export const PageFlashcards = () => {
 
 	return (
 		<>
-			{flashcardLoadingStatus === "loading" ? (
+			{flashcardLoadingStatus === "inProcess" ? (
 				<WaitSpinner />
 			) : (
 				<>

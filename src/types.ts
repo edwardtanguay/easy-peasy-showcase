@@ -4,4 +4,4 @@ export type Flashcard = {
 	back: string;
 };
 
-export type LoadingStatus = "loading" | "loaded" | "failed";
+export type ProcessStatus = "inProcess" | "finished" | "failed";
