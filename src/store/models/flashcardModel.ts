@@ -11,11 +11,11 @@ export interface FlashcardModel {
 	// actions
 	setFlashcards: Action<this, Flashcard[]>;
 	setFlashcardsLoadingStatus: Action<this, ProcessStatus>;
-	deleteFlashcard: Action<this, number>;
+	deleteFlashcard: Action<this, Flashcard>;
 
 	// thunks
 	loadFrontendFlashcardsThunk: Thunk<this>;
-	deleteFlashcardThunk: Thunk<this, number>;
+	deleteFlashcardThunk: Thunk<this, Flashcard>;
 }
 
 export const flashcardModel: FlashcardModel = {
@@ -27,9 +27,9 @@ export const flashcardModel: FlashcardModel = {
 	setFlashcardsLoadingStatus: action((state, loadingStatus) => {
 		state.flashcardsLoadingStatus = loadingStatus;
 	}),
-	deleteFlashcard: action((state, flashcardId) => {
+	deleteFlashcard: action((state, flashcard) => {
 		const index = state.flashcards.findIndex(
-			(m) => m.dataItem.id === flashcardId
+			(m) => m.dataItem.id === flashcard.dataItem.id
 		);
 		if (index !== -1) {
 			state.flashcards.splice(index, 1);
@@ -54,16 +54,16 @@ export const flashcardModel: FlashcardModel = {
 			}
 		}, config.uxLoadingSeconds() * 1000);
 	}),
-	deleteFlashcardThunk: thunk(async (actions, flashcardId) => {
+	deleteFlashcardThunk: thunk(async (actions, flashcard) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:3760/flashcards/${flashcardId}`
+				`http://localhost:3760/flashcards/${flashcard.dataItem.id}`
 			);
 			if (response.status === 200) {
 				console.log(
-					`database deletion of id=${flashcardId} was successful`
+					`database deletion of id=${flashcard.dataItem.id} was successful`
 				);
-				actions.deleteFlashcard(flashcardId);
+				actions.deleteFlashcard(flashcard);
 			}
 		} catch (e: any) {
 			console.log(`ERROR: ${e.message}`);
