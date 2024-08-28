@@ -1,5 +1,5 @@
 export const PageLearniverse = () => {
 	return (
-		<p>This is the about page.</p>
+		<p>Coming soon...</p>
 	)
 }
