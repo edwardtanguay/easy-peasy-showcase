@@ -5,10 +5,8 @@ import axios from "axios";
 
 export interface FlashcardModel {
 	flashcards: Flashcard[];
-	title: string;
 
 	// actions
-	setTitle: Action<this, string>;
 	setFlashcards: Action<this, Flashcard[]>
 	deleteFlashcard: Action<this, number>;
 
@@ -18,11 +16,7 @@ export interface FlashcardModel {
 }
 
 export const flashcardModel: FlashcardModel = {
-	title: "The Flashcards",
 	flashcards: [],
-	setTitle: action((state, title) => {
-		state.title = title;
-	}),
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
 	}),

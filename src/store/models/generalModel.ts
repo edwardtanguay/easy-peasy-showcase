@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action, action } from "easy-peasy";
 
-export interface FlashcardModel {
+export interface GeneralModel {
 	title: string;
 
 	// actions
 	setTitle: Action<this, string>;
 }
 
-export const flashcardModel: FlashcardModel = {
+export const generalModel: GeneralModel = {
 	title: "This is the title",
 	setTitle: action((state, title) => {
 		state.title = title;
