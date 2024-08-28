@@ -11,24 +11,9 @@
       "back": "die Gabel"
     },
     {
-      "id": 4,
-      "front": "the water",
-      "back": "das Wasser"
-    },
-    {
-      "id": 5,
-      "front": "the hose",
-      "back": "der Schlauch"
-    },
-    {
       "front": "the street",
       "back": "die Straße",
       "id": 6
-    },
-    {
-      "front": "the pen",
-      "back": "der Stift",
-      "id": 7
     }
   ]
 }

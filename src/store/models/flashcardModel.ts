@@ -1,9 +1,11 @@
-import { Action, action,Thunk, thunk } from "easy-peasy";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Action, action, Thunk, thunk } from "easy-peasy";
 import { Flashcard } from "../../types";
 import _db from "../../data/db.json";
+import axios from "axios";
 const flashcards = _db.flashcards;
 
-export interface FlashcardModel  {
+export interface FlashcardModel {
 	flashcards: Flashcard[];
 	title: string;
 
@@ -13,7 +15,7 @@ export interface FlashcardModel  {
 
 	// thunks
 	deleteFlashcardThunk: Thunk<this, number>;
-} 
+}
 
 export const flashcardModel: FlashcardModel = {
 	title: "The Flashcards",
@@ -27,8 +29,18 @@ export const flashcardModel: FlashcardModel = {
 			state.flashcards.splice(index, 1);
 		}
 	}),
-	deleteFlashcardThunk: thunk((actions, flashcardId) => {
-		actions.deleteFlashcard(flashcardId);
-		console.log('in thunk');
-	})
-}
+	deleteFlashcardThunk: thunk(async (actions, flashcardId) => {
+		console.log("in thunk");
+		try {
+			const response = await axios.delete(
+				`http://localhost:3760/flashcards/${flashcardId}`
+			);
+			if (response.status === 200) {
+				console.log(`database deletion of id=${flashcardId} was successful`);
+				actions.deleteFlashcard(flashcardId);
+			}
+		} catch (e: any) {
+			console.log(`ERROR: ${e.message}`);
+		}
+	}),
+};
