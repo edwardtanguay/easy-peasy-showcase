@@ -44,7 +44,7 @@ export const PageWelcome = () => {
 
 			<section className="mt-3">
 
-				<button type="button" onClick={handleChangeTitle}>change title</button>
+				<button onClick={handleChangeTitle}>change title</button>
 			</section>
 		</>
 	)
