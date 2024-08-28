@@ -1,6 +1,6 @@
 import { useStoreState, useStoreActions } from "../store/hooks"
 
-export const PageGeneral = () => {
+export const PageSettings = () => {
 
 	const { isOnline } = useStoreState((state) => state.generalModel);
 	const { toggleIsOnline } = useStoreActions((actions) => actions.generalModel);

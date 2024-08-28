@@ -6,8 +6,8 @@ import { Page404 } from "./pages/Page404.tsx";
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store.ts';
 import { PageFlashcards } from "./pages/PageFlashcards.tsx";
-import { PageGeneral } from "./pages/PageGeneral.tsx";
 import { PageLearniverse } from "./pages/PageLearniverse.tsx";
+import { PageSettings } from "./pages/PageSettings.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: "/general",
-				element: <PageGeneral />,
+				path: "/settings",
+				element: <PageSettings />,
 			},
 			{
 				path: "flashcards",
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/",
-				element: <Navigate to="/general" replace />,
+				element: <Navigate to="/settings" replace />,
 			},
 		],
 	},
