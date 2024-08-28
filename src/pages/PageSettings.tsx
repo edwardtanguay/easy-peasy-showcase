@@ -6,11 +6,11 @@ export const PageSettings = () => {
 	const { toggleIsOnline } = useStoreActions((actions) => actions.generalModel);
 
 	return (
-		<>
-			<div>Status: {isOnline ? "ONLINE" : "offline"}</div>
-			<section className="mt-3">
+		<section className="border w-[20rem] border-slate-500 rounded p-3">
+			<div className="flex justify-between">
+				<div>Status: {isOnline ? "ONLINE" : "offline"}</div>
 				<button onClick={() => toggleIsOnline()}>toggle</button>
-			</section>
-		</>
+			</div>
+		</section>
 	)
 }
