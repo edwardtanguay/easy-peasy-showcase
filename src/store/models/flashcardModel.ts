@@ -8,6 +8,7 @@ export type FlashcardModel = {
 	title: string;
 
 	// actions
+	setTitle: Action<FlashcardModel, string>;
 	deleteFlashcard: Action<FlashcardModel, number>;
 
 	// thunks
@@ -16,8 +17,11 @@ export type FlashcardModel = {
 export const flashcardModel: FlashcardModel = {
 	title: "The Flashcards222",
 	flashcards,
-	deleteFlashcard: action((state, payload) => {
-		const index = state.flashcards.findIndex((m) => m.id === payload);
+	setTitle: action((state, title) => {
+		state.title = title;
+	}),
+	deleteFlashcard: action((state, flashcardId) => {
+		const index = state.flashcards.findIndex((m) => m.id === flashcardId);
 		if (index !== -1) {
 			state.flashcards.splice(index, 1);
 		}

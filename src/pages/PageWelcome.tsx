@@ -4,7 +4,10 @@ import { FaRegTrashCan } from "react-icons/fa6";
 export const PageWelcome = () => {
 
 	const {title, flashcards} = useStoreState((state) => state.flashcardModel);
-	const { deleteFlashcard } = useStoreActions((actions) => actions.flashcardModel);
+	const { setTitle, deleteFlashcard } = useStoreActions((actions) => actions.flashcardModel);
+
+
+	setTitle("new title");
 
 	return (
 		<>
