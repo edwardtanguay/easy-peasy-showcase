@@ -10,6 +10,24 @@ export const PageWelcome = () => {
 		setTitle("new title");
 	}
 
+	const deleteTheFlashcard = (id: number) => {
+console.log('deleting ' + id);
+	// deleteFlashcardThunk: thunk(async (actions, flashcardId) => {
+	// 	console.log("in thunk");
+	// 	try {
+	// 		const response = await axios.delete(
+	// 			`http://localhost:3760/flashcards/${flashcardId}`
+	// 		);
+	// 		if (response.status === 200) {
+	// 			console.log(`database deletion of id=${flashcardId} was successful`);
+	// 			actions.deleteFlashcard(flashcardId);
+	// 		}
+	// 	} catch (e: any) {
+	// 		console.log(`ERROR: ${e.message}`);
+	// 	}
+	// }),
+	}
+
 	return (
 		<>
 			<h1>{title}</h1>
@@ -19,6 +37,7 @@ export const PageWelcome = () => {
 					return (
 						<li key={index}>
 							<div className="mt-2 flex gap-2">{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcardThunk(flashcard.id)} />
+								<span onClick={() => {deleteTheFlashcard(flashcard.id)}}>DELETE</span>
 							</div>
 						</li>
 					)
@@ -26,6 +45,7 @@ export const PageWelcome = () => {
 			</ul>
 
 			<section className="mt-3">
+
 				<button type="button" onClick={handleChangeTitle}>change title</button>
 			</section>
 		</>

@@ -1,11 +1,6 @@
 {
   "flashcards": [
     {
-      "id": 1,
-      "front": "the paper",
-      "back": "das Papier"
-    },
-    {
       "id": 2,
       "front": "the fork",
       "back": "die Gabel"
