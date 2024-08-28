@@ -13,8 +13,7 @@ export const PageFlashcards = () => {
 				<WaitSpinner />
 			) : (
 				<>
-					<p>There are {flashcards.length} flashcards.</p>
-					<p>Loading status: {flashcardLoadingStatus}</p>
+					<p>There are {flashcards.length} flashcards:</p>
 					<ul className="list-disc ml-6">
 						{flashcards.map((flashcard, index) => {
 							return (
