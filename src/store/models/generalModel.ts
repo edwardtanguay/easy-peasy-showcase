@@ -1,15 +1,14 @@
 import { Action, action } from "easy-peasy";
 
 export interface GeneralModel {
-	title: string;
+	isOnline: boolean;
 
-	// actions
-	setTitle: Action<this, string>;
+	toggleIsOnline: Action<this>;
 }
 
 export const generalModel: GeneralModel = {
-	title: "This is the title",
-	setTitle: action((state, title) => {
-		state.title = title;
+	isOnline: false,
+	toggleIsOnline: action((state) => {
+		state.isOnline = !state.isOnline;
 	}),
 };
