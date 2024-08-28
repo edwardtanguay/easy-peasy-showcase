@@ -73,7 +73,7 @@ export const flashcardModel: FlashcardModel = {
 				console.log(`ERROR: ${e.message}`);
 				flashcard.deletingStatus = "failed";
 			}
-		}, config.uxLoadingSeconds() * 500);
+		}, config.uxLoadingSeconds() * 1000);
 	}),
 };
 

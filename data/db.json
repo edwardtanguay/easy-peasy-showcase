@@ -14,6 +14,31 @@
       "front": "the pen",
       "back": "der Stift",
       "id": 7
+    },
+    {
+      "id": 8,
+      "front": "the car",
+      "back": "das Auto"
+    },
+    {
+      "id": 9,
+      "front": "the book",
+      "back": "das Buch"
+    },
+    {
+      "id": 10,
+      "front": "the chair",
+      "back": "der Stuhl"
+    },
+    {
+      "id": 11,
+      "front": "the table",
+      "back": "der Tisch"
+    },
+    {
+      "id": 12,
+      "front": "the apple",
+      "back": "der Apfel"
     }
   ]
 }

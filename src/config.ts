@@ -1,3 +1,3 @@
 export const uxLoadingSeconds = (): number => {
-	return .3;
+	return 1;
 }
