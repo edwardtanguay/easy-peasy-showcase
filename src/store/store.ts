@@ -1,13 +1,13 @@
 import { createStore } from "easy-peasy";
 import { flashcardModel, FlashcardModel } from "./models/flashcardModel";
-import { generalModel, GeneralModel } from "./models/generalModel";
+import { settingsModel, SettingsModel } from "./models/settingsModel";
 
 export type StoreModel = {
-	generalModel: GeneralModel,
+	settingsModel: SettingsModel,
 	flashcardModel: FlashcardModel,
 };
 
 export const store = createStore<StoreModel>({
-	generalModel,
+	settingsModel,
 	flashcardModel
 });
