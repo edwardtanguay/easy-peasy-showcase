@@ -5,10 +5,16 @@ const flashcards = _db.flashcards;
 
 export type FlashcardModel = {
 	flashcards: Flashcard[];
+	title: string;
+
+	// actions
 	deleteFlashcard: Action<FlashcardModel, number>;
+
+	// thunks
 } 
 
 export const flashcardModel: FlashcardModel = {
+	title: "The Flashcards222",
 	flashcards,
 	deleteFlashcard: action((state, payload) => {
 		const index = state.flashcards.findIndex((m) => m.id === payload);

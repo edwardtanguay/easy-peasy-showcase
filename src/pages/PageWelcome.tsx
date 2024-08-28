@@ -3,11 +3,12 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageWelcome = () => {
 
-	const flashcards = useStoreState((state) => state.flashcardModel.flashcards);
-	const deleteFlashcard = useStoreActions((actions) => actions.flashcardModel.deleteFlashcard);
+	const { deleteFlashcard } = useStoreActions((actions) => actions.flashcardModel);
+	const {title, flashcards} = useStoreState((state) => state.flashcardModel);
 
 	return (
 		<>
+			<h1>{title}</h1>
 			<p>There are {flashcards.length} flashcards.</p>
 			<ul className="list-disc ml-6">
 				{flashcards.map((flashcard, index) => {
