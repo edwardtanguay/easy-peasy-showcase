@@ -17,8 +17,8 @@ export const PageWelcome = () => {
 			<ul className="list-disc ml-6">
 				{flashcards.map((flashcard, index) => {
 					return (
-						<li>
-							<div className="mt-2 flex gap-2" key={index}>{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcard(flashcard.id)} />
+						<li key={index}>
+							<div className="mt-2 flex gap-2">{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcard(flashcard.id)} />
 
 - <span className="cursor-pointer" onClick={() => deleteFlashcardThunk(flashcard.id)}>delete in JSON file</span>
 
