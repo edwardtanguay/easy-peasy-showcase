@@ -55,6 +55,7 @@ export const flashcardModel: FlashcardModel = {
 		}, config.uxLoadingSeconds() * 1000);
 	}),
 	deleteFlashcardThunk: thunk(async (actions, flashcard) => {
+		flashcard.deletingStatus = "inProcess";
 		try {
 			const response = await axios.delete(
 				`http://localhost:3760/flashcards/${flashcard.dataItem.id}`
@@ -67,6 +68,7 @@ export const flashcardModel: FlashcardModel = {
 			}
 		} catch (e: any) {
 			console.log(`ERROR: ${e.message}`);
+		flashcard.deletingStatus = "failed";
 		}
 	}),
 };
