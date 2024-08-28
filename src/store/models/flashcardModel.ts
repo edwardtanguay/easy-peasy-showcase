@@ -3,13 +3,13 @@ import { Flashcard } from "../../types";
 import _db from "../../data/db.json";
 const flashcards = _db.flashcards;
 
-export type FlashcardModel = {
+export interface FlashcardModel  {
 	flashcards: Flashcard[];
 	title: string;
 
 	// actions
-	setTitle: Action<FlashcardModel, string>;
-	deleteFlashcard: Action<FlashcardModel, number>;
+	setTitle: Action<this, string>;
+	deleteFlashcard: Action<this, number>;
 
 	// thunks
 } 
