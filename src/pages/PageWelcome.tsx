@@ -26,7 +26,7 @@ export const PageWelcome = () => {
 			</ul>
 
 			<section className="mt-3">
-				<button onClick={handleChangeTitle}>change title</button>
+				<button type="button" onClick={handleChangeTitle}>change title</button>
 			</section>
 		</>
 	)
