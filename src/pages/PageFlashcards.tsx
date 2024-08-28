@@ -20,8 +20,11 @@ export const PageFlashcards = () => {
 								<li key={index}>
 									<div className="mt-2 flex gap-2">
 										{flashcard.dataItem.front} - {flashcard.dataItem.back}
-										<span className="mt-1 hover:text-red-800 cursor-pointer"><FaRegTrashCan onClick={() => deleteFlashcardThunk(flashcard)} /></span>
-										<span className="mt-1"><WaitSpinner fontSize="1rem" margin="0" /></span>
+										{flashcard.deletingStatus === "inProcess" ? (
+											<span className="mt-1"><WaitSpinner fontSize="1rem" margin="0" /></span>
+										) : (
+											<span className="mt-1 hover:text-red-800 cursor-pointer"><FaRegTrashCan onClick={() => deleteFlashcardThunk(flashcard)} /></span>
+										)}
 									</div>
 								</li>
 							)
