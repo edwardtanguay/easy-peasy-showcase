@@ -57,21 +57,23 @@ export const flashcardModel: FlashcardModel = {
 	deleteFlashcardThunk: thunk(async (actions, flashcard, { getState }) => {
 		const state = getState();
 		flashcard.deletingStatus = "inProcess";
-		actions.setFlashcards(state.flashcards)
-		try {
-			const response = await axios.delete(
-				`http://localhost:3760/flashcards/${flashcard.dataItem.id}`
-			);
-			if (response.status === 200) {
-				console.log(
-					`database deletion of id=${flashcard.dataItem.id} was successful`
+		actions.setFlashcards(state.flashcards);
+		setTimeout(async () => {
+			try {
+				const response = await axios.delete(
+					`http://localhost:3760/flashcards/${flashcard.dataItem.id}`
 				);
-				actions.deleteFlashcard(flashcard);
+				if (response.status === 200) {
+					console.log(
+						`database deletion of id=${flashcard.dataItem.id} was successful`
+					);
+					actions.deleteFlashcard(flashcard);
+				}
+			} catch (e: any) {
+				console.log(`ERROR: ${e.message}`);
+				flashcard.deletingStatus = "failed";
 			}
-		} catch (e: any) {
-			console.log(`ERROR: ${e.message}`);
-		flashcard.deletingStatus = "failed";
-		}
+		}, config.uxLoadingSeconds() * 500);
 	}),
 };
 
