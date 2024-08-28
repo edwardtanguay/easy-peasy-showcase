@@ -1,7 +1,7 @@
 import { useStoreState, useStoreActions } from "../store/hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 
-export const PageWelcome = () => {
+export const PageGeneral = () => {
 
 	const { title, flashcards } = useStoreState((state) => state.flashcardModel);
 	const { setTitle, deleteFlashcardThunk } = useStoreActions((actions) => actions.flashcardModel);

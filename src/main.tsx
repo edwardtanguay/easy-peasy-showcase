@@ -2,12 +2,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.scss";
-import { PageWelcome } from "./pages/PageWelcome.tsx";
-import { PageInfo } from "./pages/PageInfo.tsx";
-import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store.ts';
+import { PageFlashcards } from "./pages/PageFlashcards.tsx";
+import { PageGeneral } from "./pages/PageGeneral.tsx";
+import { PageLearniverse } from "./pages/PageLearniverse.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -16,20 +16,20 @@ const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: "/welcome",
-				element: <PageWelcome />,
+				path: "/general",
+				element: <PageGeneral />,
 			},
 			{
-				path: "info",
-				element: <PageInfo />,
+				path: "flashcards",
+				element: <PageFlashcards />,
 			},
 			{
-				path: "about",
-				element: <PageAbout />,
+				path: "learniverse",
+				element: <PageLearniverse />,
 			},
 			{
 				path: "/",
-				element: <Navigate to="/welcome" replace />,
+				element: <Navigate to="/general" replace />,
 			},
 		],
 	},
