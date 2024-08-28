@@ -80,7 +80,7 @@ export const decorateDataFlascards = (
 	for (const dataFlashcard of dataFlashcards) {
 		const flashcard: Flashcard = {
 			dataItem: dataFlashcard,
-			deletingStatus: "pending",
+			deletingStatus: "notActive",
 		};
 		flashcards.push(flashcard);
 	}

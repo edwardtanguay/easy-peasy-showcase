@@ -9,4 +9,4 @@ export type Flashcard = {
 	deletingStatus: ProcessStatus;
 }
 
-export type ProcessStatus = "pending" | "inProcess" | "finished" | "failed";
+export type ProcessStatus = "notActive" | "inProcess" | "finished" | "failed";
