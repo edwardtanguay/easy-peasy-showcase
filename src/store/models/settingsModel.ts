@@ -1,14 +1,14 @@
 import { Action, action } from "easy-peasy";
 
 export interface SettingsModel {
-	isOnline: boolean;
+	showInfoPage: boolean;
 
 	toggleIsOnline: Action<this>;
 }
 
 export const settingsModel: SettingsModel = {
-	isOnline: false,
+	showInfoPage: false,
 	toggleIsOnline: action((state) => {
-		state.isOnline = !state.isOnline;
+		state.showInfoPage = !state.showInfoPage;
 	}),
 };
