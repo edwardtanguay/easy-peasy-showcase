@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action, action, Thunk, thunk } from "easy-peasy";
-import { Flashcard, ProcessStatus } from "../../types";
+import { DataFlashcard, Flashcard, ProcessStatus } from "../../types";
 import axios from "axios";
 import * as config from "../../config";
 
@@ -14,7 +14,7 @@ export interface FlashcardModel {
 	deleteFlashcard: Action<this, number>;
 
 	// thunks
-	loadAllFlashcardsThunk: Thunk<this>;
+	loadFrontendFlashcardsThunk: Thunk<this>;
 	deleteFlashcardThunk: Thunk<this, number>;
 }
 
@@ -28,12 +28,12 @@ export const flashcardModel: FlashcardModel = {
 		state.flashcardLoadingStatus = loadingStatus;
 	}),
 	deleteFlashcard: action((state, flashcardId) => {
-		const index = state.flashcards.findIndex((m) => m.id === flashcardId);
+		const index = state.flashcards.findIndex((m) => m.dataItem.id === flashcardId);
 		if (index !== -1) {
 			state.flashcards.splice(index, 1);
 		}
 	}),
-	loadAllFlashcardsThunk: thunk((actions) => {
+	loadFrontendFlashcardsThunk: thunk((actions) => {
 		actions.setFlashcardLoadingStatus("inProcess");
 		setTimeout(async () => {
 			try {
@@ -41,7 +41,8 @@ export const flashcardModel: FlashcardModel = {
 					`http://localhost:3760/flashcards`
 				);
 				if (response.status === 200) {
-					const flashcards: Flashcard[] = response.data;
+					const dataFlashcards: DataFlashcard[] = response.data;
+					const flashcards = decorateDataFlascards(dataFlashcards);
 					actions.setFlashcards(flashcards);
 				}
 				actions.setFlashcardLoadingStatus("finished");
@@ -66,4 +67,18 @@ export const flashcardModel: FlashcardModel = {
 			console.log(`ERROR: ${e.message}`);
 		}
 	}),
+};
+
+export const decorateDataFlascards = (
+	dataFlashcards: DataFlashcard[]
+): Flashcard[] => {
+	const flashcards: Flashcard[] = [];
+	for (const dataFlashcard of dataFlashcards) {
+		const flashcard: Flashcard = {
+			dataItem: dataFlashcard,
+			deletingStatus: "pending",
+		};
+		flashcards.push(flashcard);
+	}
+	return flashcards;
 };

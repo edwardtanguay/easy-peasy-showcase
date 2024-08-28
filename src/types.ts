@@ -1,7 +1,12 @@
-export type Flashcard = {
+export type DataFlashcard = {
 	id: number;
 	front: string;
 	back: string;
 };
 
-export type ProcessStatus = "inProcess" | "finished" | "failed";
+export type Flashcard = {
+	dataItem: DataFlashcard,
+	deletingStatus: ProcessStatus;
+}
+
+export type ProcessStatus = "pending" | "inProcess" | "finished" | "failed";

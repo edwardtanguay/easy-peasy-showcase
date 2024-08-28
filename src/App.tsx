@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 function App() {
 
-	const {loadAllFlashcardsThunk} = useStoreActions((actions) => actions.flashcardModel);
+	const { loadFrontendFlashcardsThunk: loadAllFlashcardsThunk } = useStoreActions((actions) => actions.flashcardModel);
 
 	useEffect(() => {
 		loadAllFlashcardsThunk()
