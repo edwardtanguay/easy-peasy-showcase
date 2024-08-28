@@ -4,7 +4,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageFlashcards = () => {
 
-	const { flashcards, flashcardLoadingStatus } = useStoreState((state) => state.flashcardModel);
+	const { flashcards, flashcardsLoadingStatus: flashcardLoadingStatus } = useStoreState((state) => state.flashcardModel);
 	const { deleteFlashcardThunk } = useStoreActions((actions) => actions.flashcardModel);
 
 	return (

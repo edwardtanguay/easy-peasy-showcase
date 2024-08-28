@@ -6,11 +6,11 @@ import * as config from "../../config";
 
 export interface FlashcardModel {
 	flashcards: Flashcard[];
-	flashcardLoadingStatus: ProcessStatus;
+	flashcardsLoadingStatus: ProcessStatus;
 
 	// actions
 	setFlashcards: Action<this, Flashcard[]>;
-	setFlashcardLoadingStatus: Action<this, ProcessStatus>;
+	setFlashcardsLoadingStatus: Action<this, ProcessStatus>;
 	deleteFlashcard: Action<this, number>;
 
 	// thunks
@@ -20,21 +20,23 @@ export interface FlashcardModel {
 
 export const flashcardModel: FlashcardModel = {
 	flashcards: [],
-	flashcardLoadingStatus: "inProcess",
+	flashcardsLoadingStatus: "inProcess",
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
 	}),
-	setFlashcardLoadingStatus: action((state, loadingStatus) => {
-		state.flashcardLoadingStatus = loadingStatus;
+	setFlashcardsLoadingStatus: action((state, loadingStatus) => {
+		state.flashcardsLoadingStatus = loadingStatus;
 	}),
 	deleteFlashcard: action((state, flashcardId) => {
-		const index = state.flashcards.findIndex((m) => m.dataItem.id === flashcardId);
+		const index = state.flashcards.findIndex(
+			(m) => m.dataItem.id === flashcardId
+		);
 		if (index !== -1) {
 			state.flashcards.splice(index, 1);
 		}
 	}),
 	loadFrontendFlashcardsThunk: thunk((actions) => {
-		actions.setFlashcardLoadingStatus("inProcess");
+		actions.setFlashcardsLoadingStatus("inProcess");
 		setTimeout(async () => {
 			try {
 				const response = await axios.get(
@@ -45,10 +47,10 @@ export const flashcardModel: FlashcardModel = {
 					const flashcards = decorateDataFlascards(dataFlashcards);
 					actions.setFlashcards(flashcards);
 				}
-				actions.setFlashcardLoadingStatus("finished");
+				actions.setFlashcardsLoadingStatus("finished");
 			} catch (e: any) {
 				console.log(`ERROR: ${e.message}`);
-				actions.setFlashcardLoadingStatus("failed");
+				actions.setFlashcardsLoadingStatus("failed");
 			}
 		}, config.uxLoadingSeconds() * 1000);
 	}),
