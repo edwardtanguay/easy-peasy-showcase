@@ -8,6 +8,7 @@ import { store } from './store/store.ts';
 import { PageFlashcards } from "./pages/PageFlashcards.tsx";
 import { PageLearniverse } from "./pages/PageLearniverse.tsx";
 import { PageSettings } from "./pages/PageSettings.tsx";
+import { PageInfo } from "./pages/PageInfo.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
 			{
 				path: "learniverse",
 				element: <PageLearniverse />,
+			},
+			{
+				path: "info",
+				element: <PageInfo />,
 			},
 			{
 				path: "/",
