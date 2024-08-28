@@ -20,7 +20,7 @@ export interface FlashcardModel {
 
 export const flashcardModel: FlashcardModel = {
 	flashcards: [],
-	flashcardLoadingStatus: "pending",
+	flashcardLoadingStatus: "loading",
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
 	}),
