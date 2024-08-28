@@ -18,8 +18,10 @@ export const PageFlashcards = () => {
 						{flashcards.map((flashcard, index) => {
 							return (
 								<li key={index}>
-									<div className="mt-2 flex gap-2">{flashcard.dataItem.front} - {flashcard.dataItem.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcardThunk(flashcard)} /> 
-										<span>deleting status: {flashcard.deletingStatus}</span>
+									<div className="mt-2 flex gap-2">
+										{flashcard.dataItem.front} - {flashcard.dataItem.back}
+										<span className="mt-1 hover:text-red-800 cursor-pointer"><FaRegTrashCan onClick={() => deleteFlashcardThunk(flashcard)} /></span>
+										<span className="mt-1"><WaitSpinner fontSize="1rem" margin="0" /></span>
 									</div>
 								</li>
 							)
