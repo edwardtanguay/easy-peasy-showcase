@@ -15,7 +15,7 @@ export type FlashcardModel = {
 } 
 
 export const flashcardModel: FlashcardModel = {
-	title: "The Flashcards222",
+	title: "The Flashcards",
 	flashcards,
 	setTitle: action((state, title) => {
 		state.title = title;

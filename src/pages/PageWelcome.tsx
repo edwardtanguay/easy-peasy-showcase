@@ -3,11 +3,12 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageWelcome = () => {
 
-	const {title, flashcards} = useStoreState((state) => state.flashcardModel);
+	const { title, flashcards } = useStoreState((state) => state.flashcardModel);
 	const { setTitle, deleteFlashcard } = useStoreActions((actions) => actions.flashcardModel);
 
-
-	setTitle("new title");
+	const handleChangeTitle = () => {
+		setTitle("new title");
+	}
 
 	return (
 		<>
@@ -17,11 +18,15 @@ export const PageWelcome = () => {
 				{flashcards.map((flashcard, index) => {
 					return (
 						<li>
-						<div className="mt-2 flex gap-2" key={index}>{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcard(flashcard.id)}/></div>
+							<div className="mt-2 flex gap-2" key={index}>{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcard(flashcard.id)} /></div>
 						</li>
 					)
 				})}
 			</ul>
+
+			<section className="mt-3">
+				<button onClick={handleChangeTitle}>change title</button>
+			</section>
 		</>
 	)
 }
