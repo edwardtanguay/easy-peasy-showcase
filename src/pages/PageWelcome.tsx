@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from "axios";
 import { useStoreState, useStoreActions } from "../store/hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 
@@ -14,16 +13,26 @@ export const PageWelcome = () => {
 
 	const deleteTheFlashcard = (flashcardId: number) => {
 		(async () => {
-		try {
-			const response = await axios.delete(
-				`http://localhost:3760/flashcards/${flashcardId}`
-			);
+			// try {
+			// 	const response = await axios.delete(
+			// 		`http://localhost:3760/flashcards/${flashcardId}`
+			// 	);
+			// 	if (response.status === 200) {
+			// 		console.log(`database deletion of id=${flashcardId} was successful`);
+			// 	}
+			// } catch (e: any) {
+			// 	console.log(`ERROR: ${e.message}`);
+			// }
+			const response = await fetch(`http://localhost:3760/flashcards/${flashcardId}`,
+				{
+					method: 'DELETE',
+				});
+
 			if (response.status === 200) {
-				console.log(`database deletion of id=${flashcardId} was successful`);
+				console.log('ok');
+			} else {
+				console.log('not ok');
 			}
-		} catch (e: any) {
-			console.log(`ERROR: ${e.message}`);
-		}
 		})();
 	}
 
