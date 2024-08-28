@@ -7,7 +7,7 @@ import { PageInfo } from "./pages/PageInfo.tsx";
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
 import { StoreProvider } from 'easy-peasy';
-import { store } from './store.ts';
+import { store } from './store/store.ts';
 
 const router = createBrowserRouter([
 	{

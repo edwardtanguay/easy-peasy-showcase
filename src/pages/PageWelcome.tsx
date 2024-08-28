@@ -1,4 +1,4 @@
-import { useStoreState, useStoreActions } from "../hooks";
+import { useStoreState, useStoreActions } from "../store/hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageWelcome = () => {
