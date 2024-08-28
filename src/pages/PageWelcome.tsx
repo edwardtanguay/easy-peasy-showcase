@@ -10,31 +10,6 @@ export const PageWelcome = () => {
 		setTitle("new title");
 	}
 
-	const deleteTheFlashcard = (flashcardId: number) => {
-		(async () => {
-			// try {
-			// 	const response = await axios.delete(
-			// 		`http://localhost:3760/flashcards/${flashcardId}`
-			// 	);
-			// 	if (response.status === 200) {
-			// 		console.log(`database deletion of id=${flashcardId} was successful`);
-			// 	}
-			// } catch (e: any) {
-			// 	console.log(`ERROR: ${e.message}`);
-			// }
-			const response = await fetch(`http://localhost:3760/flashcards/${flashcardId}`,
-				{
-					method: 'DELETE',
-				});
-
-			if (response.status === 200) {
-				console.log('ok');
-			} else {
-				console.log('not ok');
-			}
-		})();
-	}
-
 	return (
 		<>
 			<h1>{title}</h1>
@@ -44,7 +19,6 @@ export const PageWelcome = () => {
 					return (
 						<li key={index}>
 							<div className="mt-2 flex gap-2">{flashcard.front} - {flashcard.back} <FaRegTrashCan className="mt-1 hover:text-red-800 cursor-pointer" onClick={() => deleteFlashcardThunk(flashcard.id)} />
-								<span onClick={() => { deleteTheFlashcard(flashcard.id) }}>DELETE</span>
 							</div>
 						</li>
 					)
