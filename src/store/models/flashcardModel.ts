@@ -1,13 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action, action, Thunk, thunk } from "easy-peasy";
-import { Flashcard } from "../../types";
+import { Flashcard, LoadingStatus } from "./types";
 import axios from "axios";
+import * as config from "../../config";
 
 export interface FlashcardModel {
 	flashcards: Flashcard[];
+	flashcardLoadingStatus: LoadingStatus;
 
 	// actions
-	setFlashcards: Action<this, Flashcard[]>
+	setFlashcards: Action<this, Flashcard[]>;
+	setFlashcardLoadingStatus: Action<this, LoadingStatus>;
 	deleteFlashcard: Action<this, number>;
 
 	// thunks
@@ -17,8 +20,12 @@ export interface FlashcardModel {
 
 export const flashcardModel: FlashcardModel = {
 	flashcards: [],
+	flashcardLoadingStatus: "pending",
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
+	}),
+	setFlashcardLoadingStatus: action((state, loadingStatus) => {
+		state.flashcardLoadingStatus = loadingStatus;
 	}),
 	deleteFlashcard: action((state, flashcardId) => {
 		const index = state.flashcards.findIndex((m) => m.id === flashcardId);
@@ -26,17 +33,23 @@ export const flashcardModel: FlashcardModel = {
 			state.flashcards.splice(index, 1);
 		}
 	}),
-	loadAllFlashcardsThunk: thunk(async (actions) => {
-		console.log('getting');
-		try {
-			const response = await axios.get(`http://localhost:3760/flashcards`);
-			if (response.status === 200) {
-				const flashcards: Flashcard[] =  response.data;
-				actions.setFlashcards(flashcards);
+	loadAllFlashcardsThunk: thunk((actions) => {
+		actions.setFlashcardLoadingStatus("loading");
+		setTimeout(async () => {
+			try {
+				const response = await axios.get(
+					`http://localhost:3760/flashcards`
+				);
+				if (response.status === 200) {
+					const flashcards: Flashcard[] = response.data;
+					actions.setFlashcards(flashcards);
+				}
+				actions.setFlashcardLoadingStatus("loaded");
+			} catch (e: any) {
+				console.log(`ERROR: ${e.message}`);
+				actions.setFlashcardLoadingStatus("failed");
 			}
-		} catch (e: any) {
-			console.log(`ERROR: ${e.message}`);
-		}
+		}, config.uxLoadingSeconds() * 1000);
 	}),
 	deleteFlashcardThunk: thunk(async (actions, flashcardId) => {
 		try {
