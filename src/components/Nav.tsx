@@ -41,7 +41,7 @@ export const Nav = () => {
 	const currentMenuItem = menuItems.find(m => m.idCode === pageIdCode);
 
 	const handleMenuToggle = () => {
-		alert('switch menu')
+		setShowMobileMenu(!showMobileMenu)
 	}
 
 	return (
