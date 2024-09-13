@@ -9,9 +9,18 @@
 	button {
 		@apply rounded bg-slate-600 hover:bg-slate-500 pt-0 pb-1 px-2 text-white;
 	}
-	
 }
 
 a.active {
 	color: rgb(232, 232, 141);
+}
+
+.pageWelcome {
+	h2 {
+		font-weight: bold;
+		margin-top: 1rem;
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
 }

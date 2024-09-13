@@ -9,6 +9,7 @@ import { PageFlashcards } from "./pages/PageFlashcards.tsx";
 import { PageLearniverse } from "./pages/PageLearniverse.tsx";
 import { PageSettings } from "./pages/PageSettings.tsx";
 import { PageInfo } from "./pages/PageInfo.tsx";
+import { PageWelcome } from "./pages/PageWelcome.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
 		errorElement: <Page404 />,
 		element: <App />,
 		children: [
+			{
+				path: "/welcome",
+				element: <PageWelcome />,
+			},
 			{
 				path: "/settings",
 				element: <PageSettings />,
@@ -34,7 +39,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/",
-				element: <Navigate to="/settings" replace />,
+				element: <Navigate to="/welcome" replace />,
 			},
 		],
 	},
