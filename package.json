@@ -13,6 +13,10 @@
 		"pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\""
 	},
 	"dependencies": {
+		"@emotion/react": "^11.13.3",
+		"@emotion/styled": "^11.13.0",
+		"@mui/icons-material": "^6.1.0",
+		"@mui/material": "^6.1.0",
 		"axios": "^1.6.7",
 		"dayjs": "^1.11.10",
 		"easy-peasy": "^6.0.5",

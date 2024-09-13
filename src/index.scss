@@ -15,12 +15,13 @@ a.active {
 	color: rgb(232, 232, 141);
 }
 
-.pageWelcome {
+.page {
 	h2 {
 		font-weight: bold;
 		margin-top: 1rem;
 		&:first-of-type {
 			margin-top: 0;
 		}
+		margin-bottom: .5rem;
 	}
 }
