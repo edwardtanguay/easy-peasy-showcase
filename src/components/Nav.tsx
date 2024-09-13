@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import * as tools from '../tools';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
 
 const menuItems = [
 	{
@@ -33,10 +34,11 @@ const menuItems = [
 
 export const Nav = () => {
 	const { showInfoPage } = useStoreState((state) => state.settingsModel);
+	const [showMobileMenu, setShowMobileMenu] = useState(false);
 
 	const location = useLocation();
 	const pageIdCode = tools.chopLeft(location.pathname, '/');
-	const menuItem = menuItems.find(m => m.idCode === pageIdCode);
+	const currentMenuItem = menuItems.find(m => m.idCode === pageIdCode);
 
 	const handleMenuToggle = () => {
 		alert('switch menu')
@@ -44,24 +46,26 @@ export const Nav = () => {
 
 	return (
 		<>
-			{menuItem && (
+			{currentMenuItem && (
 				<nav>
 					<div className="md:hidden bg-slate-500 px-4 py-2 content">
 						<div className="flex justify-between">
-							<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
+							<p><NavLink to={currentMenuItem.idCode}>{currentMenuItem.title}</NavLink></p>
 							<p className="mt-1 cursor-pointer" onClick={handleMenuToggle}><GiHamburgerMenu /></p>
 						</div>
-						<div>
-							{menuItems.map((menuItem, index) => {
-								return (
-									<>
-										{((menuItem.idCode !== 'info' || (menuItem.idCode === 'info' && showInfoPage)) && (
-											<div key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></div>
-										))}
-									</>
-								)
-							})}
-						</div>
+						{showMobileMenu && (
+							<div>
+								{menuItems.map((menuItem, index) => {
+									return (
+										<>
+											{(((menuItem.idCode !== 'info' && menuItem.idCode !== currentMenuItem.idCode) || (menuItem.idCode === 'info' && showInfoPage)) && (
+												<div key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></div>
+											))}
+										</>
+									)
+								})}
+							</div>
+						)}
 					</div>
 					<div className="hidden md:block bg-slate-500 px-4 py-2 content">
 						<ul className="flex gap-4">
