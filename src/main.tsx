@@ -10,6 +10,7 @@ import { PageLearniverse } from "./pages/PageLearniverse.tsx";
 import { PageSettings } from "./pages/PageSettings.tsx";
 import { PageInfo } from "./pages/PageInfo.tsx";
 import { PageWelcome } from "./pages/PageWelcome.tsx";
+import { PageMui } from "./pages/PageMui.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
 			{
 				path: "flashcards",
 				element: <PageFlashcards />,
+			},
+			{
+				path: "mui",
+				element: <PageMui />,
 			},
 			{
 				path: "learniverse",

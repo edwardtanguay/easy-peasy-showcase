@@ -9,6 +9,7 @@ export const Nav = () => {
 			<li><NavLink to="/welcome">Welcome</NavLink></li>
 			<li><NavLink to="/settings">Settings</NavLink></li>
 			<li><NavLink to="/flashcards">Flashcards</NavLink></li>
+			<li><NavLink to="/mui">MUI</NavLink></li>
 			<li><NavLink to="/learniverse">Learniverse</NavLink></li>
 			{showInfoPage && (
 				<li><NavLink to="/info">Info</NavLink></li>
