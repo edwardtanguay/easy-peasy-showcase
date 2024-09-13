@@ -2,6 +2,7 @@ import { useStoreState } from "../store/hooks"
 import { NavLink } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import * as tools from '../tools';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const menuItems = [
 	{
@@ -43,8 +44,8 @@ export const Nav = () => {
 				<nav>
 					<div className="md:hidden bg-slate-500 px-4 py-2 content">
 						<div className="flex justify-between">
-											<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
-							<p>[=]</p>
+							<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
+							<p className="mt-1" ><GiHamburgerMenu /></p>
 						</div>
 					</div>
 					<div className="hidden md:block bg-slate-500 px-4 py-2 content">
