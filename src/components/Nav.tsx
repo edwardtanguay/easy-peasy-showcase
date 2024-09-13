@@ -1,5 +1,7 @@
 import { useStoreState } from "../store/hooks"
 import { NavLink } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import * as tools from '../tools';
 
 const menuItems = [
 	{
@@ -31,22 +33,35 @@ const menuItems = [
 export const Nav = () => {
 	const { showInfoPage } = useStoreState((state) => state.settingsModel);
 
-	return <nav>
-		<div className="md:hidden bg-slate-500 px-4 py-2 content">
-			<p>SMARTPHONE VIEW</p>
-		</div>
-		<div className="hidden md:block bg-slate-500 px-4 py-2 content">
-			<ul className="flex gap-4">
-				{menuItems.map((menuItem, index) => {
-					return (
-						<>
-							{((menuItem.idCode !== 'info' || (menuItem.idCode === 'info' && showInfoPage)) && (
-								<li key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></li>
-							))}
-						</>
-					)
-				})}
-			</ul>
-		</div>
-	</nav>;
+	const location = useLocation();
+	const pageIdCode = tools.chopLeft(location.pathname, '/');
+	const menuItem = menuItems.find(m => m.idCode === pageIdCode);
+
+	return (
+		<>
+			{menuItem && (
+				<nav>
+					<div className="md:hidden bg-slate-500 px-4 py-2 content">
+						<div className="flex justify-between">
+											<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
+							<p>[=]</p>
+						</div>
+					</div>
+					<div className="hidden md:block bg-slate-500 px-4 py-2 content">
+						<ul className="flex gap-4">
+							{menuItems.map((menuItem, index) => {
+								return (
+									<>
+										{((menuItem.idCode !== 'info' || (menuItem.idCode === 'info' && showInfoPage)) && (
+											<li key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></li>
+										))}
+									</>
+								)
+							})}
+						</ul>
+					</div>
+				</nav>
+			)}
+		</>
+	);
 };
