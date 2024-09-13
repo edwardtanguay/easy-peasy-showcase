@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { useStoreActions } from "./store/hooks"
 import { useEffect } from "react";
 
+
 function App() {
 
 	const { loadFrontendFlashcardsThunk: loadAllFlashcardsThunk } = useStoreActions((actions) => actions.flashcardModel);

@@ -11,17 +11,25 @@
 	}
 }
 
+/* COLORS */
+.backgroundHighlight {
+	background-color: rgb(245, 245, 191);
+}
+
 a.active {
 	color: rgb(232, 232, 141);
 }
 
 .page {
-	h2 {
+	h2.main {
 		font-weight: bold;
 		margin-top: 1rem;
 		&:first-of-type {
 			margin-top: 0;
 		}
-		margin-bottom: .5rem;
+		margin-bottom: 1rem;
+		background-color: rgb(243, 243, 205);
+		padding: .5rem;
+		border-radius: .5rem;
 	}
 }

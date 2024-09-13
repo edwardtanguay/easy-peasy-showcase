@@ -1,9 +1,10 @@
+import { Typography } from "@mui/material";
 import { Nav } from "./Nav";
 
 export const Header = () => {
 	return (
 		<>
-			<h1 className="text-3xl mb-3 text-slate-800">New-Tech Showcase</h1>
+			<Typography variant="h5" gutterBottom color="primary">New-Tech Showcase</Typography>
 			<Nav/>
 		</>
 	);

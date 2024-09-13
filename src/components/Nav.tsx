@@ -57,11 +57,11 @@ export const Nav = () => {
 							<div>
 								{menuItems.map((menuItem, index) => {
 									return (
-										<>
+										<div key={index}>
 											{(((menuItem.idCode !== 'info' && menuItem.idCode !== currentMenuItem.idCode) || (menuItem.idCode === 'info' && showInfoPage)) && (
 												<div key={index}><NavLink to={menuItem.idCode} onClick={() => setShowMobileMenu(false)}>{menuItem.title}</NavLink></div>
 											))}
-										</>
+										</div>
 									)
 								})}
 							</div>
@@ -71,11 +71,11 @@ export const Nav = () => {
 						<ul className="flex gap-4">
 							{menuItems.map((menuItem, index) => {
 								return (
-									<>
+									<div key={index}>
 										{((menuItem.idCode !== 'info' || (menuItem.idCode === 'info' && showInfoPage)) && (
 											<li key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></li>
 										))}
-									</>
+									</div>
 								)
 							})}
 						</ul>

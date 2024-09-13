@@ -11,6 +11,19 @@ import { PageSettings } from "./pages/PageSettings.tsx";
 import { PageInfo } from "./pages/PageInfo.tsx";
 import { PageWelcome } from "./pages/PageWelcome.tsx";
 import { PageMui } from "./pages/PageMui.tsx";
+import { createTheme, ThemeProvider } from '@mui/material';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: '#000044'
+		}
+	}
+})
 
 const router = createBrowserRouter([
 	{
@@ -52,6 +65,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<StoreProvider store={store}>
-		<RouterProvider router={router} />
+		<ThemeProvider theme={theme}>
+			<RouterProvider router={router} />
+		</ThemeProvider>
 	</StoreProvider>
 );
