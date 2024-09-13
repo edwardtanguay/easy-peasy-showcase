@@ -38,6 +38,10 @@ export const Nav = () => {
 	const pageIdCode = tools.chopLeft(location.pathname, '/');
 	const menuItem = menuItems.find(m => m.idCode === pageIdCode);
 
+	const handleMenuToggle = () => {
+		alert('switch menu')
+	}
+
 	return (
 		<>
 			{menuItem && (
@@ -45,7 +49,7 @@ export const Nav = () => {
 					<div className="md:hidden bg-slate-500 px-4 py-2 content">
 						<div className="flex justify-between">
 							<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
-							<p className="mt-1" ><GiHamburgerMenu /></p>
+							<p className="mt-1 cursor-pointer" onClick={handleMenuToggle}><GiHamburgerMenu /></p>
 						</div>
 					</div>
 					<div className="hidden md:block bg-slate-500 px-4 py-2 content">
