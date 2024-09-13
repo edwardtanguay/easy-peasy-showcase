@@ -59,7 +59,7 @@ export const Nav = () => {
 									return (
 										<>
 											{(((menuItem.idCode !== 'info' && menuItem.idCode !== currentMenuItem.idCode) || (menuItem.idCode === 'info' && showInfoPage)) && (
-												<div key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></div>
+												<div key={index}><NavLink to={menuItem.idCode} onClick={() => setShowMobileMenu(false)}>{menuItem.title}</NavLink></div>
 											))}
 										</>
 									)
