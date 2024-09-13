@@ -51,6 +51,17 @@ export const Nav = () => {
 							<p><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></p>
 							<p className="mt-1 cursor-pointer" onClick={handleMenuToggle}><GiHamburgerMenu /></p>
 						</div>
+						<div>
+							{menuItems.map((menuItem, index) => {
+								return (
+									<>
+										{((menuItem.idCode !== 'info' || (menuItem.idCode === 'info' && showInfoPage)) && (
+											<div key={index}><NavLink to={menuItem.idCode}>{menuItem.title}</NavLink></div>
+										))}
+									</>
+								)
+							})}
+						</div>
 					</div>
 					<div className="hidden md:block bg-slate-500 px-4 py-2 content">
 						<ul className="flex gap-4">
