@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, ButtonGroup } from '@mui/material';
 import { Typography } from "@mui/material";
 import { SectionHeader } from '../components/SectionHeader';
 
@@ -42,7 +42,34 @@ export const PageMui = () => {
 			</div>
 
 			<SectionHeader title="Buttons"></SectionHeader>
-			<Button variant="contained" color="primary">Test</Button>
+			<section className='flex gap-2 flex-wrap'>
+				<Button variant="contained">Default (no color)</Button>
+				<Button variant="contained" color="primary">Primary</Button>
+				<Button variant="contained" color="secondary">Secondary</Button>
+				<Button variant="contained" color="success">Success</Button>
+				<Button variant="contained" color="error">Error</Button>
+				<Button variant="contained" color="warning">Warning</Button>
+				<Button variant="contained" color="warning" disableElevation>Warning (no shadow)</Button>
+				<Button variant="contained" color="info" disableTouchRipple>Info (no touch ripple)</Button>
+				<Button variant="contained" color="primary" disabled>Primary Disabled</Button>
+				<Button variant="contained" color="success" disabled>Success Disabled</Button>
+				<Button variant="outlined" color="success">Success</Button>
+				<Button variant="outlined" color="error">Error</Button>
+			</section>
+
+			<SectionHeader title="Button Groups"></SectionHeader>
+			<section className='flex gap-2 flex-wrap'>
+				<ButtonGroup variant='outlined' disableRipple>
+					<Button>Save</Button>
+					<Button>Delete</Button>
+					<Button>Copy</Button>
+				</ButtonGroup>
+				<ButtonGroup variant='contained' disableRipple>
+					<Button color="success">Save</Button>
+					<Button color="error">Delete</Button>
+					<Button color="warning">Copy</Button>
+				</ButtonGroup>
+			</section>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
