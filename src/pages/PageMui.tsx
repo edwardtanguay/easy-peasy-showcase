@@ -7,11 +7,11 @@ import SendIcon from '@mui/icons-material/Send';
 import { ProcessButtonBar } from '../components/ProcessButtonBar';
 import { useState } from 'react';
 import * as qdev from '../qtools/qdev';
+import { StatusButtonBar } from '../components/StatusButtonBar';
 
 export const PageMui = () => {
 	const [buttonBar001Statuses, setButtonBar001Statuses] = useState<string[]>([]);
-	// const [buttonBar002Status, setButtonBar002Status] = useState('');
-	// const [buttonBar003Status, setButtonBar003Status] = useState('');
+	const [buttonBar002Status, setButtonBar002Status] = useState('');
 
 	return (
 		<section className='page pageMui'>
@@ -225,24 +225,14 @@ export const PageMui = () => {
 					{<div className={`flex place-items-center ${buttonBar001Statuses.length === 0 ? '' : 'font-semibold'}`}>Status: {buttonBar001Statuses.join(', ')}</div>}
 				</div>
 			</div>
-			{/* <div className='mb-3 flex gap-3'>
-				<ButtonBar buttonInfo={{
-					color: 'info', buttons: [
-						{ title: 'James', func: () => { setButtonBar002Status('processing James') } },
-						{ title: 'Richard', func: () => { setButtonBar002Status('processing Richard') } },
-						{ title: 'Angie', func: () => { setButtonBar002Status('processing Angie...') } },
+			<div className='mb-3 flex gap-3'>
+				<StatusButtonBar buttonInfo={{
+					color: 'primary', buttons: [
+						{ title: 'Weekly', value: 'weekly' },
+						{ title: 'Monthly', value: 'monthly' }
 					]
 				}} /> {buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
-			</div> */}
-			{/* <div className='mb-3 flex gap-3'>
-				<ButtonBar buttonInfo={{
-					color: 'primary', buttons: [
-						{ title: 'Weekly', func: () => { setButtonBar003Status('set to weekly') } },
-						{ title: 'Monthly', func: () => { setButtonBar003Status('set to monthly') } },
-						{ title: 'Yearly', func: () => { setButtonBar003Status('set to yearly') } },
-					]
-				}} /> {buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
-			</div> */}
+			</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			{/* <Box sx={{

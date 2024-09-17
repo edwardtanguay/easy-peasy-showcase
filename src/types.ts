@@ -15,3 +15,8 @@ export type ProcessButtonInfo = {
 	color: string;
 	buttons: { title: string, func: () => Promise<unknown> }[];
 };
+
+export type StatusButtonInfo = {
+	color: string;
+	buttons: { title: string, value: string }[];
+};

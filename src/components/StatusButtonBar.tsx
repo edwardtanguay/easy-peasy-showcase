@@ -1,15 +1,15 @@
 import { Button, ButtonGroup } from '@mui/material';
-import { ProcessButtonInfo } from '../types';
+import { StatusButtonInfo } from '../types';
 
 interface IProps {
-	buttonInfo: ProcessButtonInfo
+	buttonInfo: StatusButtonInfo
 }
 
-const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => Promise<unknown>) => {
+const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => {
 	const buttonElem = e.target as HTMLButtonElement;
 	buttonElem.style.opacity = '0.6';
 	buttonElem.disabled = true;
-	await func();
+	console.log(111, value);
 	buttonElem.style.opacity = '1';
 	buttonElem.disabled = false;
 };
@@ -29,7 +29,7 @@ export const StatusButtonBar = ({ buttonInfo }: IProps) => {
 								boxShadow: 'none',
 							},
 						}}
-						onClick={(e) => handleClick(e, dataButton.func)}
+						onClick={(e) => handleClick(e, dataButton.value)}
 					>{dataButton.title}</Button>
 				)
 			})}
