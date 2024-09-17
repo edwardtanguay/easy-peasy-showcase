@@ -176,6 +176,7 @@ export const PageMui = () => {
 					]
 				}} /> {buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
 			</div>
+			<div>version 2</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
