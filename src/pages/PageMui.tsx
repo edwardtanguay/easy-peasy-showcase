@@ -228,7 +228,8 @@ export const PageMui = () => {
 				<StatusButtonBar stateVarValue={buttonBar002Status} stateVarFunc={setButtonBar002Status} buttonInfo={{
 					color: 'primary', buttons: [
 						{ title: 'Weekly', value: 'weekly' },
-						{ title: 'Monthly', value: 'monthly' }
+						{ title: 'Monthly', value: 'monthly' },
+						{ title: 'Yearly', value: 'yearly' }
 					]
 				}} /> {buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
 			</div>
@@ -242,7 +243,7 @@ export const PageMui = () => {
 
 			}}>inside the box</Box> */}
 
-			<div>version 10</div>
+			<div>version 11</div>
 		</section>
 	)
 }
