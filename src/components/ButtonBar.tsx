@@ -5,6 +5,11 @@ interface IProps {
 	buttonInfo: ButtonInfo
 }
 
+const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => void ) => {
+	func();
+	(e.target as HTMLButtonElement).blur();
+};
+
 export const ButtonBar = ({ buttonInfo }: IProps) => {
 	return (
 		<ButtonGroup variant='contained' disableRipple>
@@ -18,7 +23,7 @@ export const ButtonBar = ({ buttonInfo }: IProps) => {
 								backgroundColor: `${buttonInfo.color}.dark`,
 							},
 						}}
-						onClick={dataButton.func}
+						onClick={(e) => handleClick(e, dataButton.func)}
 					>{dataButton.title}</Button>
 				)
 			})}
