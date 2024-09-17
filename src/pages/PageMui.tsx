@@ -149,7 +149,7 @@ export const PageMui = () => {
 			</Container>
 
 			<SectionHeader title="ProcessButtonBar Component (async)"></SectionHeader>
-			<div className='mt-3 mb-3 flex gap-3 flex-col'>
+			<div className='mt-3 mb-3 flex gap-3'>
 				<div className='w-fit'>
 					<ProcessButtonBar buttonInfo={{
 						color: 'secondary',
@@ -221,12 +221,11 @@ export const PageMui = () => {
 						]
 					}} />
 				</div>
-				<div>
-					{<div className={`flex place-items-center ${buttonBar001Statuses.length === 0 ? '' : 'font-semibold'}`}>Status: {buttonBar001Statuses.join(', ')}</div>}
-				</div>
+				{<div className={`flex place-items-center font-semibold`}>{buttonBar001Statuses.join(', ')}</div>}
 			</div>
+			<SectionHeader title="StatusButtonBar Component"></SectionHeader>
 			<div className='mb-3 flex gap-3'>
-				<StatusButtonBar buttonInfo={{
+				<StatusButtonBar setFunc={setButtonBar002Status} buttonInfo={{
 					color: 'primary', buttons: [
 						{ title: 'Weekly', value: 'weekly' },
 						{ title: 'Monthly', value: 'monthly' }

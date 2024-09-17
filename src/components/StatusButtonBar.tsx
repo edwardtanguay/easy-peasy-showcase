@@ -2,19 +2,21 @@ import { Button, ButtonGroup } from '@mui/material';
 import { StatusButtonInfo } from '../types';
 
 interface IProps {
-	buttonInfo: StatusButtonInfo
+	buttonInfo: StatusButtonInfo,
+	setFunc: React.Dispatch<React.SetStateAction<string>>
 }
 
-const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => {
-	const buttonElem = e.target as HTMLButtonElement;
-	buttonElem.style.opacity = '0.6';
-	buttonElem.disabled = true;
-	console.log(111, value);
-	buttonElem.style.opacity = '1';
-	buttonElem.disabled = false;
-};
+export const StatusButtonBar = ({ buttonInfo, setFunc }: IProps) => {
 
-export const StatusButtonBar = ({ buttonInfo }: IProps) => {
+	const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => {
+		const buttonElem = e.target as HTMLButtonElement;
+		buttonElem.style.opacity = '0.6';
+		buttonElem.disabled = true;
+		setFunc(value);
+		buttonElem.style.opacity = '1';
+		buttonElem.disabled = false;
+	};
+
 	return (
 		<ButtonGroup variant='contained' disableRipple>
 			{buttonInfo.buttons.map((dataButton, index) => {
