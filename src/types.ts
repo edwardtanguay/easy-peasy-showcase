@@ -11,7 +11,7 @@ export type Flashcard = {
 
 export type ProcessStatus = "notActive" | "inProcess" | "finished" | "failed";
 
-export type ButtonInfo = {
+export type ProcessButtonInfo = {
 	color: string;
 	buttons: { title: string, func: () => Promise<unknown> }[];
 };

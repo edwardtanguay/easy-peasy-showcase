@@ -8,15 +8,13 @@ interface IProps {
 const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => Promise<unknown>) => {
 	const buttonElem = e.target as HTMLButtonElement;
 	buttonElem.style.opacity = '0.6';
-	buttonElem.style.cursor = 'default';
 	buttonElem.disabled = true;
 	await func();
 	buttonElem.style.opacity = '1';
-	buttonElem.style.cursor = 'pointer';
 	buttonElem.disabled = false;
 };
 
-export const ProcessButtonBar = ({ buttonInfo }: IProps) => {
+export const StatusButtonBar = ({ buttonInfo }: IProps) => {
 	return (
 		<ButtonGroup variant='contained' disableRipple>
 			{buttonInfo.buttons.map((dataButton, index) => {
@@ -26,6 +24,7 @@ export const ProcessButtonBar = ({ buttonInfo }: IProps) => {
 						sx={{
 							backgroundColor: `${buttonInfo.color}.main`,
 							'&:hover': {
+								// backgroundColor: `${buttonInfo.color}.dark`,
 								backgroundColor: `${buttonInfo.color}.main`,
 								boxShadow: 'none',
 							},
