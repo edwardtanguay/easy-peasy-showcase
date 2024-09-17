@@ -8,7 +8,9 @@ import { ButtonBar } from '../components/ButtonBar';
 import { useState } from 'react';
 
 export const PageMui = () => {
-	const [buttonBarStatus, setButtonBarStatus] = useState('');
+	const [buttonBar001Status, setButtonBar001Status] = useState('');
+	const [buttonBar002Status, setButtonBar002Status] = useState('');
+
 	return (
 		<section className='page pageMui'>
 			<h2>Resources:</h2>
@@ -148,22 +150,22 @@ export const PageMui = () => {
 			<div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
-						{ title: 'Print', func: () => { setButtonBarStatus('printing...') } },
-						{ title: 'Save', func: () => { setButtonBarStatus('saving...') } },
-						{ title: 'Delete', func: () => { setButtonBarStatus('deleting...') } },
-						{ title: 'Copy', func: () => { setButtonBarStatus('copying...') } },
+						{ title: 'Print', func: () => { setButtonBar001Status('printing...') } },
+						{ title: 'Save', func: () => { setButtonBar001Status('saving...') } },
+						{ title: 'Delete', func: () => { setButtonBar001Status('deleting...') } },
+						{ title: 'Copy', func: () => { setButtonBar001Status('copying...') } },
 					]
-				}} /> {buttonBarStatus && (<div className='flex place-items-center font-semibold'>{buttonBarStatus}</div>)}
+				}} /> {buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)}
 			</div>
-			{/* <div>
+			<div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
 					color: 'info', buttons: [
-						{ title: 'James' },
-						{ title: 'Hendrik' },
-						{ title: 'Susanna' }
+						{ title: 'James', func: () => { setButtonBar002Status('processing James') } },
+						{ title: 'Richard', func: () => { setButtonBar002Status('processing Richard') } },
+						{ title: 'Angie', func: () => { setButtonBar002Status('processing Angie...') } },
 					]
-				}} />
-			</div> */}
+				}} /> {buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
+			</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
