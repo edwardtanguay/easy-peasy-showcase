@@ -9,7 +9,7 @@ import { useState } from 'react';
 import * as qdev from '../qtools/qdev';
 
 export const PageMui = () => {
-	const [buttonBar001Status, setButtonBar001Status] = useState('(waiting)');
+	const [buttonBar001Statuses, setButtonBar001Statuses] = useState<string[]>([]);
 	// const [buttonBar002Status, setButtonBar002Status] = useState('');
 	// const [buttonBar003Status, setButtonBar003Status] = useState('');
 
@@ -149,36 +149,42 @@ export const PageMui = () => {
 			</Container>
 
 			<SectionHeader title="ProcessButtonBar Component (async)"></SectionHeader>
-			<div className='mb-6 flex gap-3 flex-col'>
+			<div className='mt-3 mb-3 flex gap-3 flex-col'>
 				<div className='w-fit'>
 					<ProcessButtonBar buttonInfo={{
 						color: 'secondary', buttons: [
 							{
 								title: 'Print', func: async () => {
-									setButtonBar001Status('printing...')
+									buttonBar001Statuses.push('printing...')
+									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
 									await qdev.wait(3000);
-									setButtonBar001Status('(waiting)')
+									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'printing...');
+									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
 								}
 							},
 							{
 								title: 'Save', func: async () => {
-									setButtonBar001Status('saving...')
+									buttonBar001Statuses.push('saving...')
+									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
 									await qdev.wait(3000);
-									setButtonBar001Status('(waiting)')
+									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'saving...');
+									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
 								}
 							},
 							{
 								title: 'Copy', func: async () => {
-									setButtonBar001Status('copying...')
+									buttonBar001Statuses.push('copying...')
+									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
 									await qdev.wait(3000);
-									setButtonBar001Status('(waiting)')
+									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'copying...');
+									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
 								}
 							}
 						]
 					}} />
 				</div>
 				<div>
-					{<div className={`flex place-items-center ${buttonBar001Status === '(waiting)' ? '' : 'font-semibold'}`}>Status: {buttonBar001Status}</div>}
+					{<div className={`flex place-items-center ${buttonBar001Statuses.length === 0 ? '' : 'font-semibold'}`}>Status: {buttonBar001Statuses.join(', ')}</div>}
 				</div>
 			</div>
 			{/* <div className='mb-3 flex gap-3'>
