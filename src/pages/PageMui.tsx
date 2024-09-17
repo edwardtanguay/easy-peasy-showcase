@@ -11,7 +11,7 @@ import { StatusButtonBar } from '../components/StatusButtonBar';
 
 export const PageMui = () => {
 	const [buttonBar001Statuses, setButtonBar001Statuses] = useState<string[]>([]);
-	const [buttonBar002Status, setButtonBar002Status] = useState('');
+	const [buttonBar002Status, setButtonBar002Status] = useState('monthly');
 
 	return (
 		<section className='page pageMui'>
@@ -225,7 +225,7 @@ export const PageMui = () => {
 			</div>
 			<SectionHeader title="StatusButtonBar Component"></SectionHeader>
 			<div className='mb-3 flex gap-3'>
-				<StatusButtonBar setFunc={setButtonBar002Status} buttonInfo={{
+				<StatusButtonBar stateVarValue={buttonBar002Status} stateVarFunc={setButtonBar002Status} buttonInfo={{
 					color: 'primary', buttons: [
 						{ title: 'Weekly', value: 'weekly' },
 						{ title: 'Monthly', value: 'monthly' }

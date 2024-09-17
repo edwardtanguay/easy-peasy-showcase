@@ -3,16 +3,17 @@ import { StatusButtonInfo } from '../types';
 
 interface IProps {
 	buttonInfo: StatusButtonInfo,
-	setFunc: React.Dispatch<React.SetStateAction<string>>
+	stateVarValue: string,
+	stateVarFunc: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const StatusButtonBar = ({ buttonInfo, setFunc }: IProps) => {
+export const StatusButtonBar = ({ buttonInfo, stateVarValue, stateVarFunc }: IProps) => {
 
 	const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, value: string) => {
 		const buttonElem = e.target as HTMLButtonElement;
 		buttonElem.style.opacity = '0.6';
 		buttonElem.disabled = true;
-		setFunc(value);
+		stateVarFunc(value);
 		buttonElem.style.opacity = '1';
 		buttonElem.disabled = false;
 	};
@@ -24,10 +25,9 @@ export const StatusButtonBar = ({ buttonInfo, setFunc }: IProps) => {
 					<Button
 						key={index}
 						sx={{
-							backgroundColor: `${buttonInfo.color}.main`,
+							backgroundColor: dataButton.value === stateVarValue ? `${buttonInfo.color}.dark` : `${buttonInfo.color}.main`,
 							'&:hover': {
-								// backgroundColor: `${buttonInfo.color}.dark`,
-								backgroundColor: `${buttonInfo.color}.main`,
+								backgroundColor: dataButton.value === stateVarValue ? `${buttonInfo.color}.dark` : `${buttonInfo.color}.main`,
 								boxShadow: 'none',
 							},
 						}}
