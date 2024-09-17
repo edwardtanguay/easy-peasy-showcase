@@ -146,14 +146,14 @@ export const PageMui = () => {
 			<div className='mb-3'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
-						{ title: 'Print' },
-						{ title: 'Save' },
-						{ title: 'Delete' },
-						{ title: 'Copy' }
+						{ title: 'Print', func: () => {alert('printing...')} },
+						{ title: 'Save', func: () => {alert('saving...')} },
+						{ title: 'Delete', func: () => {alert('deleting...')} },
+						{ title: 'Copy', func: () => {alert('copying...')} }
 					]
 				}} />
 			</div>
-			<div>
+			{/* <div>
 				<ButtonBar buttonInfo={{
 					color: 'info', buttons: [
 						{ title: 'James' },
@@ -161,7 +161,7 @@ export const PageMui = () => {
 						{ title: 'Susanna' }
 					]
 				}} />
-			</div>
+			</div> */}
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{

@@ -18,6 +18,7 @@ export const ButtonBar = ({ buttonInfo }: IProps) => {
 								backgroundColor: `${buttonInfo.color}.dark`,
 							},
 						}}
+						onClick={dataButton.func}
 					>{dataButton.title}</Button>
 				)
 			})}
