@@ -5,9 +5,10 @@ interface IProps {
 	buttonInfo: ButtonInfo
 }
 
-const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => void ) => {
+const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => void) => {
 	func();
 	(e.target as HTMLButtonElement).blur();
+	alert('finished blur')
 };
 
 export const ButtonBar = ({ buttonInfo }: IProps) => {
