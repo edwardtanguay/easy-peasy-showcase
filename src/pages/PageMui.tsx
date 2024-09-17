@@ -4,7 +4,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
-import { ButtonBar } from '../components/ButtonBar';
+import { ProcessButtonBar } from '../components/ProcessButtonBar';
 import { useState } from 'react';
 import * as qdev from '../qtools/qdev';
 
@@ -148,10 +148,10 @@ export const PageMui = () => {
 				</section>
 			</Container>
 
-			<SectionHeader title="Button Components"></SectionHeader>
-			<div className='mb-3 flex gap-3 flex-col'>
+			<SectionHeader title="ProcessButtonBar Component (async)"></SectionHeader>
+			<div className='mb-6 flex gap-3 flex-col'>
 				<div className='w-fit'>
-					<ButtonBar buttonInfo={{
+					<ProcessButtonBar buttonInfo={{
 						color: 'secondary', buttons: [
 							{
 								title: 'Print', func: async () => {
@@ -178,7 +178,7 @@ export const PageMui = () => {
 					}} />
 				</div>
 				<div>
-					{<div className='flex place-items-center font-semibold'>Status: {buttonBar001Status}</div>}
+					{<div className={`flex place-items-center ${buttonBar001Status === '(waiting)' ? '' : 'font-semibold'}`}>Status: {buttonBar001Status}</div>}
 				</div>
 			</div>
 			{/* <div className='mb-3 flex gap-3'>

@@ -16,7 +16,7 @@ const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, f
 
 };
 
-export const ButtonBar = ({ buttonInfo }: IProps) => {
+export const ProcessButtonBar = ({ buttonInfo }: IProps) => {
 	return (
 		<ButtonGroup variant='contained' disableRipple>
 			{buttonInfo.buttons.map((dataButton, index) => {
