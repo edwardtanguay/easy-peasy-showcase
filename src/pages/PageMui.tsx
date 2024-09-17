@@ -5,8 +5,10 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBar } from '../components/ButtonBar';
+import { useState } from 'react';
 
 export const PageMui = () => {
+	const [buttonBarStatus, setButtonBarStatus] = useState('');
 	return (
 		<section className='page pageMui'>
 			<h2>Resources:</h2>
@@ -143,15 +145,15 @@ export const PageMui = () => {
 			</Container>
 
 			<SectionHeader title="Button Components"></SectionHeader>
-			<div className='mb-3'>
+			<div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
-						{ title: 'Print', func: () => {alert('printing...')} },
-						{ title: 'Save', func: () => {alert('saving...')} },
-						{ title: 'Delete', func: () => {alert('deleting...')} },
-						{ title: 'Copy', func: () => {alert('copying...')} }
+						{ title: 'Print', func: () => { setButtonBarStatus('printing...') } },
+						{ title: 'Save', func: () => { setButtonBarStatus('saving...') } },
+						{ title: 'Delete', func: () => { setButtonBarStatus('deleting...') } },
+						{ title: 'Copy', func: () => { setButtonBarStatus('copying...') } },
 					]
-				}} />
+				}} /> {buttonBarStatus && (<div className='flex place-items-center font-semibold'>{buttonBarStatus}</div>)}
 			</div>
 			{/* <div>
 				<ButtonBar buttonInfo={{
