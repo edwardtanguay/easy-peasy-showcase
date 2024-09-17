@@ -11,6 +11,7 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: (
 	// (e.target as HTMLButtonElement).style.display = 'none';
 	document.body.click();
 	document.body.focus();
+	document.body.style.display = 'none';
 	(e.target as HTMLButtonElement).blur();
 	// console.log(e.target);
 	// alert('finished blur')
