@@ -21,7 +21,7 @@ import { PageAbout } from "./pages/PageAbout.tsx";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: '#000044'
+			main: '#2956a3'
 		}
 	}
 })

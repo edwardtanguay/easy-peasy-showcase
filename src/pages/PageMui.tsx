@@ -10,6 +10,7 @@ import { useState } from 'react';
 export const PageMui = () => {
 	const [buttonBar001Status, setButtonBar001Status] = useState('');
 	const [buttonBar002Status, setButtonBar002Status] = useState('');
+	const [buttonBar003Status, setButtonBar003Status] = useState('');
 
 	return (
 		<section className='page pageMui'>
@@ -165,6 +166,15 @@ export const PageMui = () => {
 						{ title: 'Angie', func: () => { setButtonBar002Status('processing Angie...') } },
 					]
 				}} /> {buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
+			</div>
+			<div className='mb-3 flex gap-3'>
+				<ButtonBar buttonInfo={{
+					color: 'primary', buttons: [
+						{ title: 'Weekly', func: () => { setButtonBar003Status('set to weekly') } },
+						{ title: 'Monthly', func: () => { setButtonBar003Status('set to monthly') } },
+						{ title: 'Yearly', func: () => { setButtonBar003Status('set to yearly') } },
+					]
+				}} /> {buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
 			</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
