@@ -1,25 +1,21 @@
 import { Button, ButtonGroup } from '@mui/material';
+import { ButtonInfo } from '../types';
 
-const dataButtons = [
-	{
-		title: "Print Report"
-	},
-	{
-		title: "Search"
-	}
-]
+interface IProps {
+	buttonInfo: ButtonInfo
+}
 
-export const ButtonBar = () => {
+export const ButtonBar = ({ buttonInfo }: IProps) => {
 	return (
 		<ButtonGroup variant='contained' disableRipple>
-			{dataButtons.map((dataButton, index) => {
+			{buttonInfo.buttons.map((dataButton, index) => {
 				return (
 					<Button
 						key={index}
 						sx={{
-							backgroundColor: 'info.main',
+							backgroundColor: `${buttonInfo.color}.main`,
 							'&:hover': {
-								backgroundColor: 'info.dark',
+								backgroundColor: `${buttonInfo.color}.dark`,
 							},
 						}}
 					>{dataButton.title}</Button>

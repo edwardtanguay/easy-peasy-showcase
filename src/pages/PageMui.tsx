@@ -141,9 +141,27 @@ export const PageMui = () => {
 						disableRipple endIcon={<SendIcon />} variant="contained">Send</Button>
 				</section>
 			</Container>
-			
+
 			<SectionHeader title="Button Components"></SectionHeader>
-			<ButtonBar/>
+			<div className='mb-3'>
+				<ButtonBar buttonInfo={{
+					color: 'secondary', buttons: [
+						{ title: '111' },
+						{ title: '222' },
+						{ title: '333' },
+						{ title: '444' }
+					]
+				}} />
+			</div>
+			<div>
+				<ButtonBar buttonInfo={{
+					color: 'info', buttons: [
+						{ title: 'aaa' },
+						{ title: 'bbb' },
+						{ title: 'ccc' }
+					]
+				}} />
+			</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
