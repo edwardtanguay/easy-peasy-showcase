@@ -243,7 +243,7 @@ export const PageMui = () => {
 
 			}}>inside the box</Box> */}
 
-			<div>version 12/div>
+			<div>version 12</div>
 		</section>
 	)
 }
