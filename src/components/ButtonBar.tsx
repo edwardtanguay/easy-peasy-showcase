@@ -5,12 +5,12 @@ interface IProps {
 	buttonInfo: ButtonInfo
 }
 
-const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => void) => {
-	func();
+const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => Promise<unknown>) => {
+	await func();
 
 	const buttonElem = e.target as HTMLButtonElement;
 	buttonElem.style.backgroundColor = 'red';
-	
+
 };
 
 export const ButtonBar = ({ buttonInfo }: IProps) => {

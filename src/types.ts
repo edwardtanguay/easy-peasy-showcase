@@ -13,5 +13,5 @@ export type ProcessStatus = "notActive" | "inProcess" | "finished" | "failed";
 
 export type ButtonInfo = {
 	color: string;
-	buttons: { title: string, func: () => Promise<boolean> }[];
+	buttons: { title: string, func: () => Promise<unknown> }[];
 };
