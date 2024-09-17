@@ -5,12 +5,13 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBar } from '../components/ButtonBar';
-import { useState } from 'react';
+// import { useState } from 'react';
+import * as qdev from '../qtools/qdev';
 
 export const PageMui = () => {
-	const [buttonBar001Status, setButtonBar001Status] = useState('');
-	const [buttonBar002Status, setButtonBar002Status] = useState('');
-	const [buttonBar003Status, setButtonBar003Status] = useState('');
+	// const [buttonBar001Status, setButtonBar001Status] = useState('');
+	// const [buttonBar002Status, setButtonBar002Status] = useState('');
+	// const [buttonBar003Status, setButtonBar003Status] = useState('');
 
 	return (
 		<section className='page pageMui'>
@@ -151,17 +152,14 @@ export const PageMui = () => {
 			<div className='mb-3 flex gap-3 flex-col w-fit'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
-						{ title: 'Print', func: () => { setButtonBar001Status('printing...') } },
-						{ title: 'Save', func: () => { setButtonBar001Status('saving...') } },
-						{ title: 'Delete', func: () => { setButtonBar001Status('deleting...') } },
-						{ title: 'Copy', func: () => { setButtonBar001Status('copying...') } },
+						{ title: 'Print', func: qdev.wait }
 					]
 				}} />
 				<div>
-				{buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)}
+				{/* {buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)} */}
 				</div>	
 			</div>
-			<div className='mb-3 flex gap-3'>
+			{/* <div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
 					color: 'info', buttons: [
 						{ title: 'James', func: () => { setButtonBar002Status('processing James') } },
@@ -169,8 +167,8 @@ export const PageMui = () => {
 						{ title: 'Angie', func: () => { setButtonBar002Status('processing Angie...') } },
 					]
 				}} /> {buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
-			</div>
-			<div className='mb-3 flex gap-3'>
+			</div> */}
+			{/* <div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
 					color: 'primary', buttons: [
 						{ title: 'Weekly', func: () => { setButtonBar003Status('set to weekly') } },
@@ -178,8 +176,8 @@ export const PageMui = () => {
 						{ title: 'Yearly', func: () => { setButtonBar003Status('set to yearly') } },
 					]
 				}} /> {buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
-			</div>
-			<div>version 6</div>
+			</div> */}
+			<div>version 7</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
