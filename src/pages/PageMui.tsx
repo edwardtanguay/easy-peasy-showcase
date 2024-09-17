@@ -12,6 +12,7 @@ import { StatusButtonBar } from '../components/StatusButtonBar';
 export const PageMui = () => {
 	const [buttonBar001Statuses, setButtonBar001Statuses] = useState<string[]>([]);
 	const [buttonBar002Status, setButtonBar002Status] = useState('monthly');
+	const [buttonBar003Status, setButtonBar003Status] = useState('');
 
 	return (
 		<section className='page pageMui'>
@@ -235,6 +236,26 @@ export const PageMui = () => {
 				}} />
 				<div>
 					{buttonBar002Status && (<div className='flex place-items-center font-semibold'>{buttonBar002Status}</div>)}
+				</div>
+			</div>
+			<div className='mb-3 flex gap-3 flex-col w-fit'>
+				<StatusButtonBar stateVarValue={buttonBar003Status} stateVarFunc={setButtonBar003Status} buttonInfo={{
+					color: 'info', buttons: [
+						{ title: 'James', value: 'james' },
+						{ title: 'Henry', value: 'henry' },
+						{ title: 'Angela', value: 'angela' },
+						{ title: 'Erika', value: 'erika' },
+						{ title: 'Sophia', value: 'sophia' },
+						{ title: 'Daniel', value: 'daniel' },
+						{ title: 'Michael', value: 'michael' },
+						{ title: 'Emily', value: 'emily' },
+						{ title: 'William', value: 'william' },
+						{ title: 'Olivia', value: 'olivia' },
+					]
+				}} />
+				<p>TODO: fix for mobile view: cycle through, determine dynamic mobile</p>
+				<div>
+					{buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
 				</div>
 			</div>
 
