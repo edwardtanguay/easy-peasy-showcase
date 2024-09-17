@@ -1,10 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 export const PageWelcome = () => {
 	return (
 		<section className="page pageWelcome">
-			<h2>Welcome</h2>
-			<p>This site is a showcase for new tech I am learning:</p>
+			<p className="mb-3">This site is a showcase for new tech I am learning:</p>
 			<ul className="list-disc ml-6">
-				<li><a href="https://easy-peasy.vercel.app/" className="underline">easy-peasy</a> - state management - found throughout the application, e.g. the Settings and Flashcards pages</li>
+				<li><b>easy-peasy</b> - <i>Redux-like state management simplified</i>
+					<ul className="list-disc ml-6">
+						<li>see pages <NavLink className="underline" to='/settings'>Settings</NavLink> and <NavLink className="underline" to='/flashcards'>Flashcards</NavLink></li>
+						<li>see examples of thunks</li>
+						<li>also: store is split up into two models</li>
+						<li><a target="_blank" href="https://easy-peasy.vercel.app/" className="underline">easy-peasy documentation</a></li>
+					</ul>
+
+				</li>
 			</ul>
 			<h2>Todo</h2>
 			<ul className="list-disc ml-6">
