@@ -227,6 +227,7 @@ export const PageMui = () => {
 			<div className='mb-3 flex gap-3 flex-col w-fit'>
 				<StatusButtonBar stateVarValue={buttonBar002Status} stateVarFunc={setButtonBar002Status} buttonInfo={{
 					color: 'primary', buttons: [
+						{ title: 'Daily', value: 'daily' },
 						{ title: 'Weekly', value: 'weekly' },
 						{ title: 'Monthly', value: 'monthly' },
 						{ title: 'Yearly', value: 'yearly' }

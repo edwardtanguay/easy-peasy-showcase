@@ -19,7 +19,7 @@ export const StatusButtonBar = ({ buttonInfo, stateVarValue, stateVarFunc }: IPr
 	};
 
 	return (
-		<ButtonGroup variant='contained' disableRipple>
+		<ButtonGroup variant='contained' disableRipple size="small">
 			{buttonInfo.buttons.map((dataButton, index) => {
 				return (
 					<Button

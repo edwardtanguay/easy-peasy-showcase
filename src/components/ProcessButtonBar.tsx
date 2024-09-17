@@ -28,7 +28,7 @@ export const ProcessButtonBar = ({ buttonInfo }: IProps) => {
 	};
 
 	return (
-		<ButtonGroup variant='contained' disableRipple>
+		<ButtonGroup variant='contained' disableRipple size="small">
 			{buttonInfo.buttons.map((dataButton, index) => {
 				return (
 					<Button
