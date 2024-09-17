@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { SectionHeader } from '../components/SectionHeader';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
+import SendIcon from '@mui/icons-material/Send';
 
 export const PageMui = () => {
 	return (
@@ -110,9 +111,29 @@ export const PageMui = () => {
 			<SectionHeader title="Icons"></SectionHeader>
 			<Container>
 				<ConstructionIcon />
-				<ConstructionOutlinedIcon color="secondary"/>
-				<ConstructionOutlinedIcon color="primary" fontSize="large"/>
-				<ConstructionOutlinedIcon color="primary" fontSize="small"/>
+				<ConstructionOutlinedIcon color="secondary" />
+				<ConstructionOutlinedIcon color="primary" fontSize="large" />
+				<ConstructionOutlinedIcon color="primary" fontSize="small" />
+				<ConstructionOutlinedIcon color="action" fontSize="small" />
+				<h2 className='mb-1'>With Buttons:</h2>
+				<section className='flex gap-2'>
+					<Button
+						sx={{
+							backgroundColor: 'primary.main',
+							'&:hover': {
+								backgroundColor: 'primary.dark',
+							},
+						}}
+						disableRipple startIcon={<SendIcon />} variant="contained">Send</Button>
+					<Button
+						sx={{
+							backgroundColor: 'secondary.main',
+							'&:hover': {
+								backgroundColor: 'secondary.dark',
+							},
+						}}
+						disableRipple endIcon={<SendIcon />} variant="contained">Send</Button>
+				</section>
 			</Container>
 
 			<SectionHeader title="Boxes"></SectionHeader>
