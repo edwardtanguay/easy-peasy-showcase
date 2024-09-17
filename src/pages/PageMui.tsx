@@ -8,6 +8,11 @@ import SendIcon from '@mui/icons-material/Send';
 export const PageMui = () => {
 	return (
 		<section className='page pageMui'>
+			<h2>Resources:</h2>
+			<ul className='ml-6 list-disc mb-6'>
+				<li><a className="underline" href="https://www.youtube.com/watch?v=0KEpWHtG10M&list=PL4cUxeGkcC9gjxLvV4VEkZ6H6H4yWuS58&index=1" target="_blank">VIDEO TUTORIAL: Net Ninja</a></li>
+				<li><a className="underline" href="https://mui.com/material-ui/all-components" target="_blank">Material UI Documentation</a></li>
+			</ul>
 			<SectionHeader title="Typography" marginTop='0'></SectionHeader>
 			<Container>
 				{/* Heading Variants */}
