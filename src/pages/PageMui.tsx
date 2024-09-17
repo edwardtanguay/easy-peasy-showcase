@@ -6,11 +6,6 @@ import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBar } from '../components/ButtonBar';
 import { useState } from 'react';
-import * as qdev from '../qtools/qdev';
-
-console.log(111);
-await qdev.wait(3000);
-console.log(222);
 
 export const PageMui = () => {
 	const [buttonBar001Status, setButtonBar001Status] = useState('');
