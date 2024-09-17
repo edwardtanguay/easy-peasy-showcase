@@ -13,6 +13,7 @@ export const PageFlashcards = () => {
 				<WaitSpinner />
 			) : (
 				<>
+					<p className="mb-6 font-mono text-sm">Note that this page will not work online. To functionally use this page, <a href="https://github.com/edwardtanguay/newtech2024" target="_blank" className="underline">clone this project</a> and run locally, <code className="text-orange-800">npm run dev</code> will start json-server and serve as the backend API.</p>
 					<p>There are {flashcards.length} flashcards:</p>
 					<ul className="list-disc ml-6">
 						{flashcards.map((flashcard, index) => {
