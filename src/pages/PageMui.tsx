@@ -5,11 +5,11 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBar } from '../components/ButtonBar';
-// import { useState } from 'react';
+import { useState } from 'react';
 import * as qdev from '../qtools/qdev';
 
 export const PageMui = () => {
-	// const [buttonBar001Status, setButtonBar001Status] = useState('');
+	const [buttonBar001Status, setButtonBar001Status] = useState('(waiting)');
 	// const [buttonBar002Status, setButtonBar002Status] = useState('');
 	// const [buttonBar003Status, setButtonBar003Status] = useState('');
 
@@ -149,15 +149,37 @@ export const PageMui = () => {
 			</Container>
 
 			<SectionHeader title="Button Components"></SectionHeader>
-			<div className='mb-3 flex gap-3 flex-col w-fit'>
-				<ButtonBar buttonInfo={{
-					color: 'secondary', buttons: [
-						{ title: 'Print', func: qdev.wait }
-					]
-				}} />
+			<div className='mb-3 flex gap-3 flex-col'>
+				<div className='w-fit'>
+					<ButtonBar buttonInfo={{
+						color: 'secondary', buttons: [
+							{
+								title: 'Print', func: async () => {
+									setButtonBar001Status('printing...')
+									await qdev.wait(3000);
+									setButtonBar001Status('(waiting)')
+								}
+							},
+							{
+								title: 'Save', func: async () => {
+									setButtonBar001Status('saving...')
+									await qdev.wait(3000);
+									setButtonBar001Status('(waiting)')
+								}
+							},
+							{
+								title: 'Copy', func: async () => {
+									setButtonBar001Status('copying...')
+									await qdev.wait(3000);
+									setButtonBar001Status('(waiting)')
+								}
+							}
+						]
+					}} />
+				</div>
 				<div>
-				{/* {buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)} */}
-				</div>	
+					{<div className='flex place-items-center font-semibold'>Status: {buttonBar001Status}</div>}
+				</div>
 			</div>
 			{/* <div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
@@ -177,17 +199,17 @@ export const PageMui = () => {
 					]
 				}} /> {buttonBar003Status && (<div className='flex place-items-center font-semibold'>{buttonBar003Status}</div>)}
 			</div> */}
-			<div>version 7</div>
 
 			<SectionHeader title="Boxes"></SectionHeader>
-			<Box sx={{
+			{/* <Box sx={{
 				width: '100%',
 				display: 'flex',
 				justifyContent: 'center',
 				border: '1px solid #888'
 
-			}}>inside the box</Box>
+			}}>inside the box</Box> */}
 
+			<div>version 8</div>
 		</section>
 	)
 }

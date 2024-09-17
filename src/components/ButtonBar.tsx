@@ -6,10 +6,13 @@ interface IProps {
 }
 
 const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, func: () => Promise<unknown>) => {
-	await func();
-
 	const buttonElem = e.target as HTMLButtonElement;
-	buttonElem.style.backgroundColor = 'red';
+	buttonElem.style.opacity = '0.6';
+	buttonElem.disabled = true;
+	await func();
+	buttonElem.style.opacity = '1';
+	buttonElem.disabled = false;
+
 
 };
 
