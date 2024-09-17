@@ -146,19 +146,19 @@ export const PageMui = () => {
 			<div className='mb-3'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
-						{ title: '111' },
-						{ title: '222' },
-						{ title: '333' },
-						{ title: '444' }
+						{ title: 'Print' },
+						{ title: 'Save' },
+						{ title: 'Delete' },
+						{ title: 'Copy' }
 					]
 				}} />
 			</div>
 			<div>
 				<ButtonBar buttonInfo={{
 					color: 'info', buttons: [
-						{ title: 'aaa' },
-						{ title: 'bbb' },
-						{ title: 'ccc' }
+						{ title: 'James' },
+						{ title: 'Hendrik' },
+						{ title: 'Susanna' }
 					]
 				}} />
 			</div>
