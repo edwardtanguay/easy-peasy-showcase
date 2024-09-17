@@ -27,6 +27,10 @@ const menuItems = [
 		title: 'Learniverse'
 	},
 	{
+		idCode: 'about',
+		title: 'About'
+	},
+	{
 		idCode: 'info',
 		title: 'Info'
 	}

@@ -16,6 +16,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { PageAbout } from "./pages/PageAbout.tsx";
 
 const theme = createTheme({
 	palette: {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
 			{
 				path: "info",
 				element: <PageInfo />,
+			},
+			{
+				path: "about",
+				element: <PageAbout />,
 			},
 			{
 				path: "/",
