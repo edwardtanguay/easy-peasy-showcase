@@ -23,7 +23,16 @@ export const PageWelcome = () => {
 				</li>
 			</ul>
 
-			<ul className="list-disc ml-6">
+			<ul className="list-disc ml-6 mt-3">
+				<li><b>React Flow</b> - <i>a React library for building node-based diagrams and flowcharts, created 2019</i>
+					<ul className="list-disc ml-6">
+						<li>currently external here: <a href="https://showcase-react-flow.vercel.app" target="_blank" className="underline">https://showcase-react-flow.vercel.app</a></li>
+					</ul>
+				</li>
+			</ul>
+
+
+			<ul className="list-disc ml-6 mt-3">
 				<li><b>MUI</b> - <i>Material-UI, React component library from Google, created 2014</i>
 					<ul className="list-disc ml-6">
 						<li>see page <NavLink className="underline" to='/mui'>MUI</NavLink></li>
@@ -31,11 +40,6 @@ export const PageWelcome = () => {
 				</li>
 			</ul>
 
-			<h2>Todo</h2>
-			<ul className="list-disc ml-6">
-				<li>MUI - make burger menu for responsive view</li>
-				<li>connect the React Flow site: https://showcase-react-flow.vercel.app</li>
-			</ul>
 		</section>
 	)
 }
