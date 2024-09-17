@@ -152,32 +152,70 @@ export const PageMui = () => {
 			<div className='mt-3 mb-3 flex gap-3 flex-col'>
 				<div className='w-fit'>
 					<ProcessButtonBar buttonInfo={{
-						color: 'secondary', buttons: [
+						color: 'secondary',
+						buttons: [
 							{
-								title: 'Print', func: async () => {
-									buttonBar001Statuses.push('printing...')
-									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
+								title: 'Print',
+								func: async () => {
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = [...prevStatuses, 'printing...'];
+										return newStatuses;
+									});
+
 									await qdev.wait(3000);
-									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'printing...');
-									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
+
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = prevStatuses.filter(m => m !== 'printing...');
+										return newStatuses;
+									});
 								}
 							},
 							{
-								title: 'Save', func: async () => {
-									buttonBar001Statuses.push('saving...')
-									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
+								title: 'Save',
+								func: async () => {
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = [...prevStatuses, 'saving...'];
+										return newStatuses;
+									});
+
 									await qdev.wait(3000);
-									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'saving...');
-									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
+
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = prevStatuses.filter(m => m !== 'saving...');
+										return newStatuses;
+									});
 								}
 							},
 							{
-								title: 'Copy', func: async () => {
-									buttonBar001Statuses.push('copying...')
-									setButtonBar001Statuses(structuredClone(buttonBar001Statuses))
+								title: 'Copy',
+								func: async () => {
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = [...prevStatuses, 'copying...'];
+										return newStatuses;
+									});
+
 									await qdev.wait(3000);
-									const _buttonBar001Statuses = buttonBar001Statuses.filter(m => m !== 'copying...');
-									setButtonBar001Statuses(structuredClone(_buttonBar001Statuses))
+
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = prevStatuses.filter(m => m !== 'copying...');
+										return newStatuses;
+									});
+								}
+							},
+							{
+								title: 'Delete',
+								func: async () => {
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = [...prevStatuses, 'deleting...'];
+										return newStatuses;
+									});
+
+									await qdev.wait(3000);
+
+									setButtonBar001Statuses(prevStatuses => {
+										const newStatuses = prevStatuses.filter(m => m !== 'deleting...');
+										return newStatuses;
+									});
 								}
 							}
 						]
@@ -215,7 +253,7 @@ export const PageMui = () => {
 
 			}}>inside the box</Box> */}
 
-			<div>version 8</div>
+			<div>version 9</div>
 		</section>
 	)
 }
