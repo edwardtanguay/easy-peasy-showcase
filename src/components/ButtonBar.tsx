@@ -28,9 +28,11 @@ export const ButtonBar = ({ buttonInfo }: IProps) => {
 						key={index}
 						sx={{
 							backgroundColor: `${buttonInfo.color}.main`,
-							// '&:hover': {
-							// 	backgroundColor: `${buttonInfo.color}.dark`,
-							// },
+							'&:hover': {
+								// backgroundColor: `${buttonInfo.color}.dark`,
+								backgroundColor: `${buttonInfo.color}.main`,
+								boxShadow: 'none',
+							},
 						}}
 						onClick={(e) => handleClick(e, dataButton.func)}
 					>{dataButton.title}</Button>
