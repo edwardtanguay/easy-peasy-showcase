@@ -6,6 +6,11 @@ import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import { ButtonBar } from '../components/ButtonBar';
 import { useState } from 'react';
+import * as qdev from '../qtools/qdev';
+
+console.log(111);
+await qdev.wait(3000);
+console.log(222);
 
 export const PageMui = () => {
 	const [buttonBar001Status, setButtonBar001Status] = useState('');
@@ -148,7 +153,7 @@ export const PageMui = () => {
 			</Container>
 
 			<SectionHeader title="Button Components"></SectionHeader>
-			<div className='mb-3 flex gap-3'>
+			<div className='mb-3 flex gap-3 flex-col w-fit'>
 				<ButtonBar buttonInfo={{
 					color: 'secondary', buttons: [
 						{ title: 'Print', func: () => { setButtonBar001Status('printing...') } },
@@ -156,7 +161,10 @@ export const PageMui = () => {
 						{ title: 'Delete', func: () => { setButtonBar001Status('deleting...') } },
 						{ title: 'Copy', func: () => { setButtonBar001Status('copying...') } },
 					]
-				}} /> {buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)}
+				}} />
+				<div>
+				{buttonBar001Status && (<div className='flex place-items-center font-semibold'>{buttonBar001Status}</div>)}
+				</div>	
 			</div>
 			<div className='mb-3 flex gap-3'>
 				<ButtonBar buttonInfo={{
