@@ -4,6 +4,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import SendIcon from '@mui/icons-material/Send';
+import { ButtonBar } from '../components/ButtonBar';
 
 export const PageMui = () => {
 	return (
@@ -140,6 +141,9 @@ export const PageMui = () => {
 						disableRipple endIcon={<SendIcon />} variant="contained">Send</Button>
 				</section>
 			</Container>
+			
+			<SectionHeader title="Button Components"></SectionHeader>
+			<ButtonBar/>
 
 			<SectionHeader title="Boxes"></SectionHeader>
 			<Box sx={{
