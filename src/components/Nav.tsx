@@ -27,6 +27,10 @@ const menuItems = [
 		title: 'Learniverse'
 	},
 	{
+		idCode: 'responsive',
+		title: 'Responsive'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
