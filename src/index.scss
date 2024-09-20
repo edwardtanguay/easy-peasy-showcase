@@ -38,3 +38,63 @@ button:focus {
 	outline: none; /* Remove default outline */
 	box-shadow: none; /* Remove any box-shadow if applied */
 }
+
+form.general {
+	width: 40rem;
+	position: relative;
+
+	legend {
+		font-size: 1.5rem;
+		background-color: #777;
+		color: #fff;
+		border: 1px solid #999;
+		padding: 0.2rem 0.5rem;
+		border-radius: 0.3rem;
+	}
+	fieldset {
+		background-color: #eee;
+		border: 1px solid #999;
+		border-radius: 0.3rem;
+		padding: 2rem;
+	}
+
+	label {
+		font-size: 2rem;
+		width: 10rem;
+	}
+
+	input {
+		width: 24rem;
+		font-size: 2rem;
+	}
+
+	.row {
+		margin-bottom: 2rem;
+		display: flex;
+		gap: 1rem;
+	}
+
+	.buttonArea {
+		display: flex;
+		justify-content: right;
+
+		button {
+			font-size: 1.5rem;
+			border-radius: 0.5rem;
+			border: 1px solid #888;
+			padding: 0.5rem 1rem;
+		}
+	}
+
+	.diagonal-text {
+		position: absolute;
+		top: 12rem;
+		left: 6rem;
+		transform: rotate(-15deg);
+		transform-origin: top left;
+		color: red;
+		font-size: 3rem;
+		font-weight: bold;
+		opacity: 0.5;
+	}
+}

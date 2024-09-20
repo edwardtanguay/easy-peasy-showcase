@@ -18,6 +18,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { PageResponsive } from "./pages/PageResponsive.tsx";
+import { PageStateTest } from "./pages/pageStateTest.tsx";
 
 const theme = createTheme({
 	palette: {
@@ -55,7 +56,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "responsive",
-				element: <PageResponsive/>
+				element: <PageResponsive />
+			},
+			{
+				path: "stateTest",
+				element: <PageStateTest />
 			},
 			{
 				path: "about",

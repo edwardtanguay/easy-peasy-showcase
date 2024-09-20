@@ -31,6 +31,10 @@ const menuItems = [
 		title: 'Responsive'
 	},
 	{
+		idCode: 'stateTest',
+		title: 'State Test'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
