@@ -19,6 +19,7 @@ export const PageStateTest = () => {
 	const [isProcessing, setIsProcessing] = useState(false);
 
 	const handleSignup = async () => {
+		console.log('in here');
 		try {
 			setIsProcessing(true);
 			console.log(JSON.stringify(signupForm, null, 2));
@@ -64,7 +65,7 @@ export const PageStateTest = () => {
 
 
 				<div className="buttonArea">
-					<button disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} onClick={handleSignup}>Create</button>
+					<button type="submit" disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} >Create</button>
 				</div>
 			</fieldset>
 		</form>
