@@ -18,7 +18,9 @@ export const PageStateTest = () => {
 	const [signupForm, setSignupForm] = useState<SignupForm>(initialSignupForm);
 	const [isProcessing, setIsProcessing] = useState(false);
 
-	const handleSignup = () => {
+	const handleSignup = (e: React.FormEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		
 		console.log('in here');
 		try {
 			setIsProcessing(true);
@@ -64,7 +66,7 @@ export const PageStateTest = () => {
 
 
 				<div className="buttonArea">
-					<button type="submit" disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} onClick={()=> handleSignup()}>Create</button>
+					<button type="button" disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} onClick={(e) => handleSignup(e)}>Create</button>
 				</div>
 			</fieldset>
 		</form>
