@@ -18,37 +18,49 @@ export const PageStateTest = () => {
 	const [signupForm, setSignupForm] = useState<SignupForm>(initialSignupForm);
 	const [isProcessing, setIsProcessing] = useState(false);
 
-	const handleSignup = async (e: React.FormEvent<HTMLButtonElement>) => {
-		// Prevent form's default submit behavior
+	const handleSignup = (e: React.FormEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 
 		try {
 			setIsProcessing(true);
 			console.log(JSON.stringify(signupForm, null, 2));
-			// Simulate processing (e.g., sending form data to a server)
-			await new Promise((resolve) => setTimeout(resolve, 1000));
 			setIsProcessing(false);
-
-			// Reset form after processing
 			const _signupForm = structuredClone(initialSignupForm);
 			setSignupForm(_signupForm);
 		} catch (error) {
 			console.error('Error during signup', error);
-			setIsProcessing(false);
 		}
 	};
 
+	// THIS WORKS	
 	const handleFieldChange = (fieldName: string, e: React.ChangeEvent<HTMLInputElement>) => {
+		const _signupForm = structuredClone(signupForm);
 		const value = e.target.value;
-		// Update the signupForm state based on the field
-		setSignupForm((prevForm) => ({
-			...prevForm,
-			data: {
-				...prevForm.data,
-				[fieldName]: value
-			}
-		}));
+		switch (fieldName) {
+			case 'email':
+				_signupForm.data.email = value;
+				break;
+			case 'password':
+				_signupForm.data.password = value;
+				break;
+		}
+		setSignupForm(_signupForm);
 	};
+
+	// THIS HAS THE LEAVE-ONE-LETTER BUG
+	// const handleFieldChange = (fieldName: string, e: React.ChangeEvent<HTMLInputElement>) => {
+	// 	const value = e.target.value;
+	// 	switch (fieldName) {
+	// 		case 'email':
+	// 			signupForm.data.email = value;
+	// 			break;
+	// 		case 'password':
+	// 			signupForm.data.password = value;
+	// 			break;
+	// 	}
+	// 	const _signupForm = structuredClone(signupForm);
+	// 	setSignupForm(_signupForm);
+	// };
 
 	return (
 		<form className="general">
