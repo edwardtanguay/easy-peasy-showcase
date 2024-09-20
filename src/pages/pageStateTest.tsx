@@ -18,7 +18,7 @@ export const PageStateTest = () => {
 	const [signupForm, setSignupForm] = useState<SignupForm>(initialSignupForm);
 	const [isProcessing, setIsProcessing] = useState(false);
 
-	const handleSignup = async () => {
+	const handleSignup = () => {
 		console.log('in here');
 		try {
 			setIsProcessing(true);
@@ -45,7 +45,6 @@ export const PageStateTest = () => {
 		setSignupForm(_signupForm);
 	}
 
-
 	return (
 		<form className="general">
 			<fieldset>
@@ -54,7 +53,7 @@ export const PageStateTest = () => {
 
 				<div className="row">
 					<label>Email:</label>
-					<input disabled={isProcessing} type="email" value={signupForm.data.email} onChange={(e) => handleFieldChange('email', e)} />
+					<input disabled={isProcessing} type="text" value={signupForm.data.email} onChange={(e) => handleFieldChange('email', e)} />
 				</div>
 
 
@@ -65,7 +64,7 @@ export const PageStateTest = () => {
 
 
 				<div className="buttonArea">
-					<button type="submit" disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} >Create</button>
+					<button type="submit" disabled={isProcessing || (signupForm.data.email.trim() === '' || signupForm.data.password.trim() === '')} onClick={()=> handleSignup()}>Create</button>
 				</div>
 			</fieldset>
 		</form>
