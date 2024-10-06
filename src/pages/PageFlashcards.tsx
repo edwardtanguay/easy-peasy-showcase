@@ -1,11 +1,11 @@
 import { WaitSpinner } from "../components/WaitSpinner";
-import { useStoreState, useStoreActions } from "../store/hooks"
+import { useTypedStoreState, useTypedStoreActions } from "../store/hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageFlashcards = () => {
 
-	const { flashcards, flashcardsLoadingStatus: flashcardLoadingStatus } = useStoreState((state) => state.flashcardModel);
-	const { deleteFlashcardThunk } = useStoreActions((actions) => actions.flashcardModel);
+	const { flashcards, flashcardsLoadingStatus: flashcardLoadingStatus } = useTypedStoreState((state) => state.flashcardModel);
+	const { deleteFlashcardThunk } = useTypedStoreActions((actions) => actions.flashcardModel);
 
 	return (
 		<>

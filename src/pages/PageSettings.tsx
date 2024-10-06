@@ -1,9 +1,9 @@
-import { useStoreState, useStoreActions } from "../store/hooks"
+import { useTypedStoreState, useTypedStoreActions } from "../store/hooks"
 
 export const PageSettings = () => {
 
-	const { showInfoPage } = useStoreState((state) => state.settingsModel);
-	const { toggleIsOnline } = useStoreActions((actions) => actions.settingsModel);
+	const { showInfoPage } = useTypedStoreState((state) => state.settingsModel);
+	const { toggleIsOnline } = useTypedStoreActions((actions) => actions.settingsModel);
 
 	return (
 		<section className="border w-[20rem] border-slate-500 rounded p-3">

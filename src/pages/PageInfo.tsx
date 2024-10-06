@@ -1,8 +1,8 @@
-import { useStoreState } from "../store/hooks"
+import { useTypedStoreState } from "../store/hooks"
 import { NavLink } from "react-router-dom";
 
 export const PageInfo = () => {
-	const { showInfoPage } = useStoreState((state) => state.settingsModel);
+	const { showInfoPage } = useTypedStoreState((state) => state.settingsModel);
 
 	return (
 		<>

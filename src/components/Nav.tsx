@@ -1,4 +1,4 @@
-import { useStoreState } from "../store/hooks"
+import { useTypedStoreState } from "../store/hooks"
 import { NavLink } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import * as tools from '../tools';
@@ -45,7 +45,7 @@ const menuItems = [
 ]
 
 export const Nav = () => {
-	const { showInfoPage } = useStoreState((state) => state.settingsModel);
+	const { showInfoPage } = useTypedStoreState((state) => state.settingsModel);
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 
 	const location = useLocation();
