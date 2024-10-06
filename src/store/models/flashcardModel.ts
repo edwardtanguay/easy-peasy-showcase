@@ -5,6 +5,7 @@ import axios from "axios";
 import * as config from "../../config";
 
 export interface FlashcardModel {
+	// state
 	flashcards: Flashcard[];
 	flashcardsLoadingStatus: ProcessStatus;
 
@@ -19,8 +20,11 @@ export interface FlashcardModel {
 }
 
 export const flashcardModel: FlashcardModel = {
+	//state
 	flashcards: [],
 	flashcardsLoadingStatus: "inProcess",
+
+	// actions
 	setFlashcards: action((state, flashcards) => {
 		state.flashcards = structuredClone(flashcards);
 	}),
@@ -35,6 +39,8 @@ export const flashcardModel: FlashcardModel = {
 			state.flashcards.splice(index, 1);
 		}
 	}),
+
+	// thunks
 	loadFrontendFlashcardsThunk: thunk((actions) => {
 		actions.setFlashcardsLoadingStatus("inProcess");
 		setTimeout(async () => {
