@@ -1,5 +1,10 @@
+import { PropTestBox } from "../components/PropTestBox"
+
 export const PagePropTest = () => {
 	return (
-		<p>prop test</p>
+		<>
+			<h2>Below is a component which changes a variable in its parent.</h2>
+			<PropTestBox />
+		</>
 	)
 }
