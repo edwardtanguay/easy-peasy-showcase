@@ -35,6 +35,10 @@ const menuItems = [
 		title: 'State Test'
 	},
 	{
+		idCode: 'prop-test',
+		title: 'Prop Test'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
