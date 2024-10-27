@@ -39,6 +39,10 @@ const menuItems = [
 		title: 'Prop Test'
 	},
 	{
+		idCode: 'gitHubActions',
+		title: 'GitHub Actions'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
