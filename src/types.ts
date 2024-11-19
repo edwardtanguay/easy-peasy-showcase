@@ -20,3 +20,8 @@ export type StatusButtonInfo = {
 	color: string;
 	buttons: { title: string, value: string }[];
 };
+
+export type TestUser = {
+	firstName: string;
+	age: number;
+}
