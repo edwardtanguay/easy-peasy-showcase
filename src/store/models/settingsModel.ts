@@ -1,14 +1,19 @@
-import { Action, action } from "easy-peasy";
+import { Action, action, thunk, Thunk } from "easy-peasy";
 import { TestUser } from "../../types";
 
 export interface SettingsModel {
+	// state
 	showInfoPage: boolean;
 	testMessage: string;
 	testUser: TestUser;
 
+	// actions
 	toggleIsOnline: Action<this>;
 	setTestMessage: Action<this, string>;
 	setTestUser: Action<this, TestUser>;
+
+	// thunk
+	setTestMessageWithThunk: Thunk<this>;
 }
 
 export const settingsModel: SettingsModel = {
@@ -30,4 +35,9 @@ export const settingsModel: SettingsModel = {
 	setTestUser: action((state, testUser) => {
 		state.testUser = testUser;
 	}),
+
+	// thunks
+	setTestMessageWithThunk: thunk((_, __, { getState }) => {
+		getState().testMessage = 'CHANGE WITH THUNK';
+	})
 };
