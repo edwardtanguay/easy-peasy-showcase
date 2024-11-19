@@ -13,16 +13,17 @@ export interface SettingsModel {
 	setTestUser: Action<this, TestUser>;
 
 	// thunk
-	setTestMessageWithThunk: Thunk<this>;
+	setTestMessageWithThunkGetState: Thunk<this>;
+	setTestMessageWithThunkAction: Thunk<this>;
 }
 
 export const settingsModel: SettingsModel = {
 	// state
 	showInfoPage: false,
-	testMessage: 'ORIGINAL MESSAGE',
+	testMessage: "ORIGINAL MESSAGE",
 	testUser: {
-		firstName: 'James',
-		age: 45
+		firstName: "James",
+		age: 45,
 	},
 
 	// actions
@@ -37,7 +38,10 @@ export const settingsModel: SettingsModel = {
 	}),
 
 	// thunks
-	setTestMessageWithThunk: thunk((_, __, { getState }) => {
-		getState().testMessage = 'CHANGE WITH THUNK';
-	})
+	setTestMessageWithThunkGetState: thunk((_, __, { getState }) => {
+		getState().testMessage = "CHANGED WITH THUNK GETSTATE()";
+	}),
+	setTestMessageWithThunkAction: thunk((actions) => {
+		actions.setTestMessage("CHANGE WITH THUNK ACTION");
+	}),
 };
