@@ -21,6 +21,7 @@ import { PageResponsive } from "./pages/PageResponsive.tsx";
 import { PageStateTest } from "./pages/pageStateTest.tsx";
 import { PagePropTest } from "./pages/PagePropTest.tsx";
 import { PageGitHubActions } from "./pages/PageGitHubActions.tsx";
+import { PageChangeState } from "./pages/PageChangeState.tsx";
 
 const theme = createTheme({
 	palette: {
@@ -70,7 +71,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "gitHubActions",
-				element: <PageGitHubActions/>
+				element: <PageGitHubActions />
+			},
+			{
+				path: "changeState",
+				element: <PageChangeState />
 			},
 			{
 				path: "about",

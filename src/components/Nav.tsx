@@ -43,6 +43,10 @@ const menuItems = [
 		title: 'GitHub Actions'
 	},
 	{
+		idCode: 'changeState',
+		title: 'Change State'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
