@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react"
 
-type UseMouseInArea = boolean;
+type UseMouseInArea = [number, boolean];
 
 export const useMouseIsInArea = (): UseMouseInArea => {
 	const [mouseIsInArea, setMouseIsInArea] = useState(false);
+	const [mouseY, setMouseY] = useState(0);
+
+	const updateMouseInfo = (e: MouseEvent) => {
+		setMouseY(e.pageY);
+		setMouseIsInArea(e.pageY < 200);
+	}
 
 	useEffect(() => {
-		const rand = Math.floor(Math.random() * 2 + 1);
-		setMouseIsInArea(rand === 1)
+		document.addEventListener('mousemove', updateMouseInfo)
 	}, []);
 
-	return mouseIsInArea;
+	return [mouseY, mouseIsInArea];
 }

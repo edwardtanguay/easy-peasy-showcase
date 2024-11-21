@@ -6,7 +6,7 @@ export const PageHooks = () => {
 	const [isOnline, toggleIsOnline] = useToggle(true);
 	const [receiveNewsletter, toggleNewsletter] = useToggle();
 	const [isLocked, toggleLocked] = useToggle();
-	const mouseIsInArea = useMouseIsInArea();
+	const [mouseY, mouseIsInArea] = useMouseIsInArea();
 
 	return (
 		<>
@@ -29,6 +29,7 @@ export const PageHooks = () => {
 				</div>
 			</Example>
 			<Example title="useMouseInArea">
+				<p>Mouse is at: {mouseY}</p>
 				<p>Is in area: {mouseIsInArea ? 'yes' : 'no'}</p>
 			</Example>
 		</>
