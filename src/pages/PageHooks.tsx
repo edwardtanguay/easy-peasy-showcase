@@ -1,7 +1,7 @@
 import { useToggle } from "../hooks/useToggle";
 
 export const PageHooks = () => {
-	const [isOnline, toggleIsOnline] = useToggle();
+	const [isOnline, toggleIsOnline] = useToggle(true);
 	const [receiveNewsletter, toggleNewsletter] = useToggle();
 
 	return (
