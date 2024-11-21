@@ -4,6 +4,7 @@ import { useToggle } from "../hooks/useToggle";
 export const PageHooks = () => {
 	const [isOnline, toggleIsOnline] = useToggle(true);
 	const [receiveNewsletter, toggleNewsletter] = useToggle();
+	const [isLocked, toggleLocked] = useToggle();
 
 	return (
 		<>
@@ -16,6 +17,10 @@ export const PageHooks = () => {
 					<div className="flex gap-2">
 						<button onClick={toggleNewsletter}>Newsletter</button>
 						<span>{receiveNewsletter ? "send" : "do not send"}</span>
+					</div>
+					<div className="flex gap-2">
+						<button onClick={toggleLocked}>Lock Status</button>
+						<span>{isLocked ? "locked" : "not locked"}</span>
 					</div>
 				</div>
 			</Example>
