@@ -26,6 +26,9 @@ export const PageHooks = () => {
 					</div>
 				</div>
 			</Example>
+			<Example title="useMouseInArea">
+				<p>mouse hook</p>
+			</Example>
 		</>
 	);
 };
