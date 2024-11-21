@@ -1,5 +1,11 @@
+import { useToggle } from "../hooks/useToggle"
+
 export const PageHooks = () => {
+	const [isOnline, toggleIsOnline] = useToggle();
+
 	return (
-		<p>hooks pages</p>
+		<>
+			<div><button onClick={toggleIsOnline}>Online</button> <span>{isOnline ? 'yes' : 'no'}</span></div>
+		</>
 	)
 }
