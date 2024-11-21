@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Example } from "../components/Example";
 import { useMouseIsInArea } from "../hooks/useMouseIsInArea";
 import { useToggle } from "../hooks/useToggle";
@@ -6,8 +7,8 @@ export const PageHooks = () => {
 	const [isOnline, toggleIsOnline] = useToggle(true);
 	const [receiveNewsletter, toggleNewsletter] = useToggle();
 	const [isLocked, toggleLocked] = useToggle();
-	const [mouseY, mouseX, mouseIsInArea] = useMouseIsInArea();
-
+	const divRef = useRef<HTMLDivElement>(null);
+	const [y, x, isInArea] = useMouseIsInArea(divRef);
 	return (
 		<>
 			<Example title="useToggle">
@@ -29,8 +30,20 @@ export const PageHooks = () => {
 				</div>
 			</Example>
 			<Example title="useMouseInArea">
-				<p>Mouse is at: {mouseY} x {mouseX}</p>
-				<p>Is in area: {mouseIsInArea ? 'yes' : 'no'}</p>
+				<div>
+					<div
+						ref={divRef}
+						style={{
+							width: "300px",
+							height: "200px",
+							backgroundColor: isInArea ? "lightgreen" : "lightcoral",
+							position: "relative",
+						}}
+					>
+						<p>Mouse Position: X: {x.toFixed(0)}, Y: {y.toFixed(0)}</p>
+						<p>Mouse is {isInArea ? "inside" : "outside"} the area.</p>
+					</div>
+				</div>
 			</Example>
 		</>
 	);
