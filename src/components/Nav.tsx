@@ -47,6 +47,10 @@ const menuItems = [
 		title: 'Change State'
 	},
 	{
+		idCode: 'hooks',
+		title: 'Hooks'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
