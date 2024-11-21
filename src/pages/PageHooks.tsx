@@ -1,10 +1,12 @@
 import { Example } from "../components/Example";
+import { useMouseIsInArea } from "../hooks/useMouseIsInArea";
 import { useToggle } from "../hooks/useToggle";
 
 export const PageHooks = () => {
 	const [isOnline, toggleIsOnline] = useToggle(true);
 	const [receiveNewsletter, toggleNewsletter] = useToggle();
 	const [isLocked, toggleLocked] = useToggle();
+	const mouseIsInArea = useMouseIsInArea();
 
 	return (
 		<>
@@ -27,7 +29,7 @@ export const PageHooks = () => {
 				</div>
 			</Example>
 			<Example title="useMouseInArea">
-				<p>mouse hook</p>
+				<p>Is in area: {mouseIsInArea ? 'yes' : 'no'}</p>
 			</Example>
 		</>
 	);
