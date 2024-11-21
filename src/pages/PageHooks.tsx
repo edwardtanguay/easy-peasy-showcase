@@ -1,11 +1,11 @@
 import { useToggle } from "../hooks/useToggle";
 
 export const PageHooks = () => {
-	const [isOnline, toggleIsOnline] = useToggle(); // Tuple: [state, toggle function]
+	const [isOnline, toggleIsOnline] = useToggle();
 
 	return (
 		<>
-			<div>
+			<div className="flex gap-3">
 				<button onClick={toggleIsOnline}>Toggle Online</button>
 				<span>{isOnline ? "yes" : "no"}</span>
 			</div>
