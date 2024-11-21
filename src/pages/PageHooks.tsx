@@ -39,8 +39,9 @@ export const PageHooks = () => {
 							backgroundColor: isInArea ? "lightgreen" : "lightcoral",
 							position: "relative",
 						}}
+						className="flex justify-center items-center flex-col"
 					>
-						<p>Mouse Position: X: {x.toFixed(0)}, Y: {y.toFixed(0)}</p>
+						<p className="w-fit">Mouse Position: X: {x.toFixed(0)}, Y: {y.toFixed(0)}</p>
 						<p>Mouse is {isInArea ? "inside" : "outside"} the area.</p>
 					</div>
 				</div>

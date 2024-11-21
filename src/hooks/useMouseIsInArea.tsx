@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
 type UseMouseInArea = [number, number, boolean];
@@ -26,9 +27,9 @@ export const useMouseIsInArea = (ref: React.RefObject<HTMLDivElement>): UseMouse
 		document.addEventListener("mousemove", updateMouseInfo);
 
 		return () => {
-			document.removeEventListener("mousemove", updateMouseInfo); // Cleanup listener
+			document.removeEventListener("mousemove", updateMouseInfo);
 		};
-	}, [ref]);
+	}, []);
 
 	return [mouseY, mouseX, mouseIsInArea];
 };
