@@ -5,8 +5,8 @@ export const PageHooks = () => {
 
 	return (
 		<>
-			<div className="flex gap-3">
-				<button onClick={toggleIsOnline}>Toggle Online</button>
+			<div className="flex gap-2">
+				<button onClick={toggleIsOnline}>Online</button>
 				<span>{isOnline ? "yes" : "no"}</span>
 			</div>
 		</>
