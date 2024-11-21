@@ -21,10 +21,9 @@ export const PageHooks = () => {
 					<div className="flex gap-2 w-[7rem]">
 						<label className="flex gap-2 cursor-pointer">
 							<input type="checkbox" checked={isLocked} onChange={toggleLocked} />
-							<span>{isLocked ? "locked" : "not locked"}</span>
+							<span style={{ color: isLocked ? 'darkgreen' : 'darkred' }}>{isLocked ? "locked" : "not locked"}</span>
 						</label>
 					</div>
-
 				</div>
 			</Example>
 		</>
