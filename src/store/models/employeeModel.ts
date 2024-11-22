@@ -3,7 +3,7 @@ import { action, Action, computed, Computed, Thunk, thunk } from "easy-peasy";
 import { Employee, LoadingStatus, RawEmployee, SortField } from "../../types";
 import * as config from "../../config";
 import axios from "axios";
-import { convertRawEmployeesToEmployees } from "../dataModel";
+import { convertRawEmployeesToEmployees } from "../dataManager";
 import { SortDirection } from "@mui/material";
 
 export interface EmployeeModel {
