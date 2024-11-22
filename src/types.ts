@@ -37,4 +37,4 @@ export type Employee = {
 	yearsOfExperience: number;
 }
 
-export type LoadingStatus = "readyToLoad" | "loading" | "finished";
+export type LoadingStatus = "readyToLoad" | "loading" | "error" | "finished";

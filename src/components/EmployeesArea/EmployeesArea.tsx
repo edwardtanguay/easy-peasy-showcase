@@ -9,36 +9,43 @@ export const EmployeesArea = () => {
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects loaded via API with full CRUD functionality">
-				{loadingStatus !== "finished" && (
+				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
 				)}
+				{loadingStatus === "error" && (
+					<p>Sorry, the data couldn't be loading, please contact the website administrator.'</p>
+				)}
 				<table className={`employees ${loadingStatus === 'finished' ? 'fadeIn' : 'fadeOut'}`}>
-					<thead>
-						<tr>
-							<th className="dpId">dpodid</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Birthdate</th>
-							<th>Department</th>
-							<th>Is Active</th>
-							<th>Years Experience</th>
-						</tr>
-					</thead>
-					<tbody>
-						{employees.map(employee => {
-							return (
+					{loadingStatus === "finished" && (
+						<>
+							<thead>
 								<tr>
-									<td className="dpId">{employee.dpodId}</td>
-									<td className="dpLine">{employee.firstName}</td>
-									<td className="dpLine">{employee.lastName}</td>
-									<td className="dpDate">{employee.dateOfBirth}</td>
-									<td className="dpLine">{employee.department}</td>
-									<td className="dpYesNo">{employee.isActive ? 'yes' : 'no'}</td>
-									<td className="dpWholeNumber">{employee.yearsOfExperience}</td>
+									<th className="dpId">dpodid</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Birthdate</th>
+									<th>Department</th>
+									<th>Is Active</th>
+									<th>Years Experience</th>
 								</tr>
-							)
-						})}
-					</tbody>
+							</thead>
+							<tbody>
+								{employees.map(employee => {
+									return (
+										<tr>
+											<td className="dpId">{employee.dpodId}</td>
+											<td className="dpLine">{employee.firstName}</td>
+											<td className="dpLine">{employee.lastName}</td>
+											<td className="dpDate">{employee.dateOfBirth}</td>
+											<td className="dpLine">{employee.department}</td>
+											<td className="dpYesNo">{employee.isActive ? 'yes' : 'no'}</td>
+											<td className="dpWholeNumber">{employee.yearsOfExperience}</td>
+										</tr>
+									)
+								})}
+							</tbody>
+						</>
+					)}
 				</table>
 			</Example>
 		</section>

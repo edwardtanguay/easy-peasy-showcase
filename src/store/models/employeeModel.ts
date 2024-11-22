@@ -38,17 +38,19 @@ export const employeeModel: EmployeeModel = {
 	loadEmployees: thunk(async (actions) => {
 		setTimeout(async () => {
 			try {
-				actions._setLoadingStatus("loading")
+				actions._setLoadingStatus("loading");
 				const response = await axios.get(
 					`http://localhost:3760/employees`
 				);
-				actions._setLoadingStatus("finished")
+				actions._setLoadingStatus("finished");
 				if (response.status === 200) {
 					const employees = response.data as Employee[];
 					actions._setEmployees(employees);
+				} else {
+					actions._setLoadingStatus("error");
 				}
 			} catch (e: any) {
-				// TODO: record error
+				actions._setLoadingStatus("error");
 			}
 		}, config.uxLoadingSeconds() * 1000);
 	}),
