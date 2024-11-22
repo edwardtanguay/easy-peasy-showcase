@@ -6,7 +6,7 @@
 	h1 {
 		font-variant: small-caps;
 	}
-	button {
+	button.normalButton {
 		@apply rounded bg-slate-600 hover:bg-slate-500 pt-0 pb-1 px-2 text-white;
 	}
 }

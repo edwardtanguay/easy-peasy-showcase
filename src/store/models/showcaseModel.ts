@@ -1,4 +1,4 @@
-import { Action, action } from "easy-peasy";
+import { Action, action, computed, Computed } from "easy-peasy";
 
 const testMessageInitialState = ["original001", "original002"];
 
@@ -7,8 +7,11 @@ export interface ShowcaseModel {
 	testMessages: string[];
 	testMessagesSearchText: string;
 
+	// computed state
+	filteredTestMessages: Computed<ShowcaseModel, string[]>;
+
 	// actions
-	addTestMessage: Action<this, string>;
+	addTestMessage: Action<this>;
 	deleteTestMessage: Action<this>;
 	resetTestMessages: Action<this>;
 	handleChangeTestMessageSearchText: Action<this, string>;
@@ -21,8 +24,12 @@ export const showcaseModel: ShowcaseModel = {
 	testMessages: testMessageInitialState,
 	testMessagesSearchText: "",
 
+	// computed state
+	filteredTestMessages: computed((state) => state.testMessages.filter(m => m.includes(state.testMessagesSearchText))),
+
 	// actions
-	addTestMessage: action((state, testMessage) => {
+	addTestMessage: action((state) => {
+		const testMessage = String(Math.floor(Math.random() * 1000) + 1);
 		state.testMessages.push(testMessage);
 	}),
 	deleteTestMessage: action((state) => {
@@ -33,6 +40,7 @@ export const showcaseModel: ShowcaseModel = {
 	}),
 	handleChangeTestMessageSearchText: action((state, newSearchText) => {
 		state.testMessagesSearchText = newSearchText;
+
 	}),
 
 	// thunks
