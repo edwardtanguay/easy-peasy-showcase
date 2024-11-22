@@ -37,7 +37,7 @@ export const EmployeesArea = () => {
 							<tbody>
 								{filteredEmployees.map(employee => {
 									return (
-										<tr>
+										<tr key={employee.id}>
 											<td className="dpId">{employee.dpodId}</td>
 											<td className="dpLine">{employee.firstName}</td>
 											<td className="dpLine">{employee.lastName}</td>
