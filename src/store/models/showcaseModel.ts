@@ -6,6 +6,7 @@ export interface ShowcaseModel {
 
 	// actions
 	addTestMessage: Action<this, string>;
+	deleteTestMessage: Action<this>;
 
 	// thunk
 }
@@ -17,6 +18,9 @@ export const showcaseModel: ShowcaseModel = {
 	// actions
 	addTestMessage: action((state, testMessage) => {
 		state.testMessages.push(testMessage);
+	}),
+	deleteTestMessage: action((state) => {
+		state.testMessages.pop();
 	}),
 
 	// thunks
