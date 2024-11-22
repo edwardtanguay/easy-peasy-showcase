@@ -1,4 +1,4 @@
-import { EmployeesArea } from "../components/EmployeesArea";
+import { EmployeesArea } from "../components/EmployeesArea/EmployeesArea";
 import { TestMessagesArea } from "../components/TestMessagesArea";
 
 export const PageEasyPeasy = () => {
