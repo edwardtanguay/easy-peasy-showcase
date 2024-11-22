@@ -1,12 +1,14 @@
 section.pageEasyPeasy {
 	table.fadeIn {
 		opacity: 1;
-		transition: opacity .5s ease-in;
+		filter: blur(0);
+		transition: filter .5s ease-in;
 	}
 
 	table.fadeOut {
 		opacity: 0;
-		transition: opacity .5s ease-out;
+		filter: blur(5px);
+		transition: filter .5s ease-out;
 	}
 
 	table.employees {
