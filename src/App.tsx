@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Outlet } from "react-router-dom";
 import { Header } from "./components/Header";
-import { useTypedStoreActions } from "./store/hooks"
+import { useTypedStoreActions } from "./store/easy-peasy-hooks"
 import { useEffect } from "react";
 import { Container } from "@mui/material";
 

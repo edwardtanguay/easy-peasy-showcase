@@ -1,4 +1,4 @@
-import { useTypedStoreState } from "../../store/hooks";
+import { useTypedStoreState } from "../../store/easy-peasy-hooks";
 import { Example } from "../Example"
 import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
@@ -8,12 +8,12 @@ export const EmployeesArea = () => {
 
 	return (
 		<section className="pageEasyPeasy">
-			<Example title="employee objects loaded via API with full CRUD functionality">
+			<Example title="employee objects via API with full CRUD functionality">
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
 				)}
 				{loadingStatus === "error" && (
-					<p>Sorry, the data couldn't be loading, please contact the website administrator.'</p>
+					<p className="text-red-800 italic">Sorry, the data couldn't be loaded, please contact the website administrator.</p>
 				)}
 				<table className={`employees ${loadingStatus === 'finished' ? 'fadeIn' : 'fadeOut'}`}>
 					{loadingStatus === "finished" && (

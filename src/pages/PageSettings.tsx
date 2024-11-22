@@ -1,4 +1,4 @@
-import { useTypedStoreState, useTypedStoreActions } from "../store/hooks"
+import { useTypedStoreState, useTypedStoreActions } from "../store/easy-peasy-hooks"
 
 export const PageSettings = () => {
 

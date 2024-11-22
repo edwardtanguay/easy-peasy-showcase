@@ -1,4 +1,4 @@
-import { useTypedStoreState } from "../store/hooks"
+import { useTypedStoreState } from "../store/easy-peasy-hooks"
 import { NavLink } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import * as tools from '../tools';

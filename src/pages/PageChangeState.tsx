@@ -1,4 +1,4 @@
-import { useTypedStoreActions, useTypedStoreState } from "../store/hooks";
+import { useTypedStoreActions, useTypedStoreState } from "../store/easy-peasy-hooks";
 
 export const PageChangeState = () => {
 	const { testMessage, testUser } = useTypedStoreState((state) => state.settingsModel);

@@ -1,5 +1,5 @@
 import { WaitSpinner } from "../components/WaitSpinner";
-import { useTypedStoreState, useTypedStoreActions } from "../store/hooks"
+import { useTypedStoreState, useTypedStoreActions } from "../store/easy-peasy-hooks"
 import { FaRegTrashCan } from "react-icons/fa6";
 
 export const PageFlashcards = () => {
