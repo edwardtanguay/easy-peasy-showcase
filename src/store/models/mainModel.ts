@@ -16,7 +16,7 @@ export const mainModel: MainModel = {
 	// actions
 
 	// thunks
-	initialize: thunk((_, __, { getStoreActions}) => {
-		getStoreActions().employeeModel.loadEmployees();
+	initialize: thunk((_, __, { getStoreActions }) => {
+		getStoreActions().employeeModel.loadEmployeesThunk();
 	}),
 };

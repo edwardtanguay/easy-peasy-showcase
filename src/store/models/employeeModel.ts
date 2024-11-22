@@ -24,7 +24,7 @@ export interface EmployeeModel {
 	handleChangeSort: Action<this, SortField>;
 
 	// thunk
-	loadEmployees: Thunk<this>;
+	loadEmployeesThunk: Thunk<this>;
 }
 
 export const employeeModel: EmployeeModel = {
@@ -49,11 +49,11 @@ export const employeeModel: EmployeeModel = {
 	}),
 
 	// actions
-	_setEmployees: action((store, employees) => {
-		store.employees = employees;
+	_setEmployees: action((state, employees) => {
+		state.employees = employees;
 	}),
-	_setLoadingStatus: action((store, loadindStatus) => {
-		store.loadingStatus = loadindStatus;
+	_setLoadingStatus: action((state, loadindStatus) => {
+		state.loadingStatus = loadindStatus;
 	}),
 	handleSearchTextChange: action((state, searchText) => {
 		state.searchText = searchText;
@@ -63,7 +63,7 @@ export const employeeModel: EmployeeModel = {
 	}),
 
 	// thunks
-	loadEmployees: thunk(async (actions) => {
+	loadEmployeesThunk: thunk(async (actions) => {
 		setTimeout(async () => {
 			try {
 				actions._setLoadingStatus("loading");
