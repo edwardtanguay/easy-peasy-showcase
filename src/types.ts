@@ -36,3 +36,5 @@ export type Employee = {
 	isActive: boolean;
 	yearsOfExperience: number;
 }
+
+export type LoadingStatus = "readyToLoad" | "loading" | "finished";
