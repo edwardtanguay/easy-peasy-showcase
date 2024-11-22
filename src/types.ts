@@ -25,3 +25,12 @@ export type TestUser = {
 	firstName: string;
 	age: number;
 }
+
+export type Employee = {
+	firstName: string;
+	lastName: string;
+	dateOfBirth: string;
+	department: string;
+	isActive: boolean;
+	yearsOfExperience: number;
+}
