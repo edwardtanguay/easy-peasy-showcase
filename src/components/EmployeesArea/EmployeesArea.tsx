@@ -11,7 +11,8 @@ export const EmployeesArea = () => {
 				<table className="employees">
 					<thead>
 						<tr>
-							<th className="dpLine">First Name</th>
+							<th className="dpId">dpodid</th>
+							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Birthdate</th>
 							<th>Department</th>
@@ -20,14 +21,19 @@ export const EmployeesArea = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td className="dpLine">James</td>
-							<td className="dpLine">Smith</td>
-							<td className="dpDate">2024-11-22</td>
-							<td className="dpLine">Sales</td>
-							<td className="dpYesNo">Yes</td>
-							<td className="dpWholeNumber">12</td>
-						</tr>
+						{employees.map(employee => {
+							return (
+								<tr>
+									<td className="dpId">{employee.dpodId}</td>
+									<td className="dpLine">James</td>
+									<td className="dpLine">Smith</td>
+									<td className="dpDate">2024-11-22</td>
+									<td className="dpLine">Sales</td>
+									<td className="dpYesNo">Yes</td>
+									<td className="dpWholeNumber">12</td>
+								</tr>
+							)
+						})}
 					</tbody>
 				</table>
 			</Example>

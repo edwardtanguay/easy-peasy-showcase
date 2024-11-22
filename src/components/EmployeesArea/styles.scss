@@ -10,6 +10,12 @@ section.pageEasyPeasy {
 					text-align: left;
 					opacity: 70%;
 				}
+				th.dpId {
+					font-family: monospace;
+					font-variant: normal;
+					font-size: .7rem;
+					padding-top: .3rem;
+				}
 			}
 		}
 		tbody {
@@ -18,6 +24,11 @@ section.pageEasyPeasy {
 					background-color: #ccc;
 					font-size: .9rem;
 					padding: .3rem;
+				}
+				td.dpId {
+					font-family: monospace;
+					text-align: center;
+					opacity: 50%;
 				}
 				td.dpLine {
 					min-width: 10rem;
