@@ -23,6 +23,7 @@ import { PagePropTest } from "./pages/PagePropTest.tsx";
 import { PageGitHubActions } from "./pages/PageGitHubActions.tsx";
 import { PageChangeState } from "./pages/PageChangeState.tsx";
 import { PageHooks } from "./pages/PageHooks.tsx";
+import { PageEasyPeasy } from "./pages/PageEasyPeasy.tsx";
 
 const theme = createTheme({
 	palette: {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
 			{
 				path: "hooks",
 				element: <PageHooks/>
+			},
+			{
+				path: "easyPeasy",
+				element: <PageEasyPeasy/>
 			},
 			{
 				path: "about",

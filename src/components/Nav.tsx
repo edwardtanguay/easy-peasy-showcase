@@ -51,6 +51,10 @@ const menuItems = [
 		title: 'Hooks'
 	},
 	{
+		idCode: 'easyPeasy',
+		title: 'Easy Peasy'
+	},
+	{
 		idCode: 'about',
 		title: 'About'
 	},
