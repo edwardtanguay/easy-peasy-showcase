@@ -40,5 +40,55 @@
       "front": "the apple",
       "back": "der Apfel"
     }
+  ],
+  "employees": [
+    {
+      "firstName": "James",
+      "lastName": "Smith",
+      "dateOfBirth": "1994-11-22",
+      "department": "Sales",
+      "isActive": true,
+      "yearsOfExperience": 5
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "dateOfBirth": "1988-03-14",
+      "department": "Sales",
+      "isActive": false,
+      "yearsOfExperience": 8
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "dateOfBirth": "1990-07-06",
+      "department": "Engineering",
+      "isActive": true,
+      "yearsOfExperience": 10
+    },
+    {
+      "firstName": "Sophia",
+      "lastName": "Taylor",
+      "dateOfBirth": "1996-11-30",
+      "department": "Customer Support",
+      "isActive": true,
+      "yearsOfExperience": 2
+    },
+    {
+      "firstName": "Liam",
+      "lastName": "Davis",
+      "dateOfBirth": "1985-01-22",
+      "department": "Engineering",
+      "isActive": false,
+      "yearsOfExperience": 15
+    },
+    {
+      "firstName": "Olivia",
+      "lastName": "Martinez",
+      "dateOfBirth": "1992-05-10",
+      "department": "Customer Support",
+      "isActive": true,
+      "yearsOfExperience": 7
+    }
   ]
 }
