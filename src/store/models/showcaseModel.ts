@@ -1,5 +1,7 @@
 import { Action, action } from "easy-peasy";
 
+const testMessageInitialState = ["original001", "original002"];
+
 export interface ShowcaseModel {
 	// state
 	testMessages: string[];
@@ -7,13 +9,14 @@ export interface ShowcaseModel {
 	// actions
 	addTestMessage: Action<this, string>;
 	deleteTestMessage: Action<this>;
+	resetTestMessages: Action<this>;
 
 	// thunk
 }
 
 export const showcaseModel: ShowcaseModel = {
 	// state
-	testMessages: ["original001", "original002", "original003"],
+	testMessages: testMessageInitialState,
 
 	// actions
 	addTestMessage: action((state, testMessage) => {
@@ -21,6 +24,9 @@ export const showcaseModel: ShowcaseModel = {
 	}),
 	deleteTestMessage: action((state) => {
 		state.testMessages.pop();
+	}),
+	resetTestMessages: action((state) => {
+		state.testMessages = testMessageInitialState;
 	}),
 
 	// thunks
