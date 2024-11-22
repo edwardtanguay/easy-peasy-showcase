@@ -4,7 +4,7 @@ import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const {filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
+	const { filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
@@ -15,6 +15,9 @@ export const EmployeesArea = () => {
 				{loadingStatus === "error" && (
 					<p className="text-red-800 italic">Sorry, the data couldn't be loaded, please contact the website administrator.</p>
 				)}
+				<form>
+					<input placeholder="search" className="bg-gray-300" />
+				</form>
 				<table className={`employees ${loadingStatus === 'finished' ? 'fadeIn' : 'fadeOut'}`}>
 					{loadingStatus === "finished" && (
 						<>
