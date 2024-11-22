@@ -31,8 +31,8 @@ export const showcaseModel: ShowcaseModel = {
 	resetTestMessages: action((state) => {
 		state.testMessages = testMessageInitialState;
 	}),
-	handleChangeTestMessageSearchText: action((state, searchText) => {
-		state.testMessages.push(searchText);
+	handleChangeTestMessageSearchText: action((state, newSearchText) => {
+		state.testMessagesSearchText = newSearchText;
 	}),
 
 	// thunks
