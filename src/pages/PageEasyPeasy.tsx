@@ -9,6 +9,9 @@ export const PageEasyPeasy = () => {
 		<>
 			<h2 className="text-2xl">Easy Peasy Showcase</h2>
 			<p className="mt-2 mb-3">This page shows examples of using Easy-Peasy Redux in various ways.</p>
+			<Example title="employee objects loaded via API with full CRUD functionality">
+				<p>testing</p>
+			</Example>
 			<Example title="array of strings">
 				<form>
 					<div className="flex gap-3">

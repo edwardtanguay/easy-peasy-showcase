@@ -19,7 +19,16 @@ export interface EmployeeModel {
 
 export const employeeModel: EmployeeModel = {
 	// state
-	employees: [],
+	employees: [
+		{
+			firstName: "Mock",
+			lastName: "Johnson",
+			dateOfBirth: "1988-03-14",
+			department: "Sales",
+			isActive: false,
+			yearsOfExperience: 8,
+		},
+	],
 
 	// computed state
 
