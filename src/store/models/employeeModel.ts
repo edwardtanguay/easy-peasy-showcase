@@ -21,7 +21,15 @@ export const employeeModel: EmployeeModel = {
 	// state
 	employees: [
 		{
-			firstName: "Mock",
+			firstName: "Mock 001",
+			lastName: "Johnson",
+			dateOfBirth: "1988-03-14",
+			department: "Sales",
+			isActive: false,
+			yearsOfExperience: 8,
+		},
+		{
+			firstName: "Mock 002",
 			lastName: "Johnson",
 			dateOfBirth: "1988-03-14",
 			department: "Sales",

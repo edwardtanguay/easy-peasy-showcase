@@ -4,13 +4,14 @@ import { useTypedStoreActions, useTypedStoreState } from "../store/hooks";
 export const PageEasyPeasy = () => {
 	const { testMessagesSearchText, filteredTestMessages } = useTypedStoreState((state) => state.testMessageModel);
 	const { addTestMessage, deleteTestMessage, resetTestMessages, handleChangeTestMessageSearchText } = useTypedStoreActions((actions) => actions.testMessageModel);
+	const {employees} = useTypedStoreState((state) => state.employeeModel);
 
 	return (
 		<>
 			<h2 className="text-2xl">Easy Peasy Showcase</h2>
 			<p className="mt-2 mb-3">This page shows examples of using Easy-Peasy Redux in various ways.</p>
 			<Example title="employee objects loaded via API with full CRUD functionality">
-				<p>testing</p>
+				<p>{employees.length} employees</p>
 			</Example>
 			<Example title="array of strings">
 				<form>
