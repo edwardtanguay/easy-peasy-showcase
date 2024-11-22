@@ -27,6 +27,7 @@ export type TestUser = {
 }
 
 export type Employee = {
+	id: number;
 	dpodId: string;
 	firstName: string;
 	lastName: string;
