@@ -16,6 +16,7 @@ export interface EmployeeModel {
 	// actions
 	_setEmployees: Action<this, Employee[]>;
 	_setLoadingStatus: Action<this, LoadingStatus>;
+	handleSearchTextChange: Action<this, string>;
 
 	// thunk
 	loadEmployees: Thunk<this>;
@@ -47,6 +48,10 @@ export const employeeModel: EmployeeModel = {
 	_setLoadingStatus: action((store, loadindStatus) => {
 		store.loadingStatus = loadindStatus;
 	}),
+	handleSearchTextChange: action((state, searchText) => {
+		state.searchText = searchText;
+	}),
+
 
 	// thunks
 	loadEmployees: thunk(async (actions) => {

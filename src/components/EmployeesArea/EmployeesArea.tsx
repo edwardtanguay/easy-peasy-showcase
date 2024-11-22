@@ -1,23 +1,24 @@
-import { useTypedStoreState } from "../../store/easy-peasy-hooks";
+import { useTypedStoreActions, useTypedStoreState } from "../../store/easy-peasy-hooks";
 import { Example } from "../Example"
 import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
 	const { filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
+	const { handleSearchTextChange } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects via API with full CRUD functionality">
+				<form className="my-2">
+					<input placeholder="search" onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+				</form>
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
 				)}
 				{loadingStatus === "error" && (
 					<p className="text-red-800 italic">Sorry, the data couldn't be loaded, please contact the website administrator.</p>
 				)}
-				<form>
-					<input placeholder="search" className="bg-gray-300" />
-				</form>
 				<table className={`employees ${loadingStatus === 'finished' ? 'fadeIn' : 'fadeOut'}`}>
 					{loadingStatus === "finished" && (
 						<>
