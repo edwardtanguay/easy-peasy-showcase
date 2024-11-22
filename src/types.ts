@@ -13,20 +13,20 @@ export type ProcessStatus = "notActive" | "inProcess" | "finished" | "failed";
 
 export type ProcessButtonInfo = {
 	color: string;
-	buttons: { title: string, func: () => Promise<unknown> }[];
+	buttons: { title: string; func: () => Promise<unknown> }[];
 };
 
 export type StatusButtonInfo = {
 	color: string;
-	buttons: { title: string, value: string }[];
+	buttons: { title: string; value: string }[];
 };
 
 export type TestUser = {
 	firstName: string;
 	age: number;
-}
+};
 
-export type Employee = {
+export type RawEmployee = {
 	id: number;
 	dpodId: string;
 	firstName: string;
@@ -35,6 +35,14 @@ export type Employee = {
 	department: string;
 	isActive: boolean;
 	yearsOfExperience: number;
-}
+};
+
+export type Employee = RawEmployee & {
+	bulkSearchText: string;
+};
 
 export type LoadingStatus = "readyToLoad" | "loading" | "error" | "finished";
+
+export type SortField = "none" | "firstName" | "lastName";
+
+export type SortDirection = "ascending" | "descending";

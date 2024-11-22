@@ -4,14 +4,15 @@ import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
-	const { handleSearchTextChange } = useTypedStoreActions((actions) => actions.employeeModel);
+	const { filteredEmployees, loadingStatus, sortField, sortDirection } = useTypedStoreState((state) => state.employeeModel);
+	const { handleSearchTextChange, handleChangeSort } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects via API with full CRUD functionality">
-				<form className="my-2">
+				<form className="my-2 flex gap-3">
 					<input placeholder="search" onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+					({sortField}/{sortDirection})
 				</form>
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
@@ -25,8 +26,8 @@ export const EmployeesArea = () => {
 							<thead>
 								<tr>
 									<th className="dpId">dpodid</th>
-									<th>First Name</th>
-									<th>Last Name</th>
+									<th className="cursor-pointer" onClick={() => handleChangeSort("firstName")}>First Name</th>
+									<th className="cursor-pointer" onClick={() => handleChangeSort("lastName")}>Last Name</th>
 									<th>Birthdate</th>
 									<th>Department</th>
 									<th>Is Active</th>

@@ -1,14 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { action, Action, computed, Computed, Thunk, thunk } from "easy-peasy";
-import { Employee, LoadingStatus } from "../../types";
+import { Employee, LoadingStatus, RawEmployee, SortField } from "../../types";
 import * as config from "../../config";
 import axios from "axios";
+import { convertRawEmployeesToEmployees } from "../dataModel";
+import { SortDirection } from "@mui/material";
 
 export interface EmployeeModel {
 	// state
 	employees: Employee[];
 	loadingStatus: LoadingStatus;
 	searchText: string;
+	sortField: SortField;
+	sortDirection: SortDirection;
 
 	// computed state
 	filteredEmployees: Computed<this, Employee[]>;
@@ -17,6 +21,7 @@ export interface EmployeeModel {
 	_setEmployees: Action<this, Employee[]>;
 	_setLoadingStatus: Action<this, LoadingStatus>;
 	handleSearchTextChange: Action<this, string>;
+	handleChangeSort: Action<this, SortField>;
 
 	// thunk
 	loadEmployees: Thunk<this>;
@@ -27,6 +32,8 @@ export const employeeModel: EmployeeModel = {
 	employees: [],
 	loadingStatus: "readyToLoad",
 	searchText: "",
+	sortField: "none",
+	sortDirection: "asc",
 
 	// computed state
 	filteredEmployees: computed((state) => {
@@ -34,7 +41,7 @@ export const employeeModel: EmployeeModel = {
 			return state.employees;
 		} else {
 			return state.employees.filter((m) =>
-				m.lastName
+				m.bulkSearchText
 					.toLowerCase()
 					.includes(state.searchText.toLowerCase())
 			);
@@ -51,7 +58,9 @@ export const employeeModel: EmployeeModel = {
 	handleSearchTextChange: action((state, searchText) => {
 		state.searchText = searchText;
 	}),
-
+	handleChangeSort: action((state, sortField) => {
+		state.sortField = sortField;
+	}),
 
 	// thunks
 	loadEmployees: thunk(async (actions) => {
@@ -63,7 +72,9 @@ export const employeeModel: EmployeeModel = {
 				);
 				actions._setLoadingStatus("finished");
 				if (response.status === 200) {
-					const employees = response.data as Employee[];
+					const rawEmployees = response.data as RawEmployee[];
+					const employees =
+						convertRawEmployeesToEmployees(rawEmployees);
 					actions._setEmployees(employees);
 				} else {
 					actions._setLoadingStatus("error");
