@@ -2,8 +2,8 @@ import { Example } from "../components/Example"
 import { useTypedStoreActions, useTypedStoreState } from "../store/hooks";
 
 export const PageEasyPeasy = () => {
-	const { testMessagesSearchText, filteredTestMessages } = useTypedStoreState((state) => state.showcaseModel);
-	const { addTestMessage, deleteTestMessage, resetTestMessages, handleChangeTestMessageSearchText } = useTypedStoreActions((actions) => actions.showcaseModel);
+	const { testMessagesSearchText, filteredTestMessages } = useTypedStoreState((state) => state.testMessageModel);
+	const { addTestMessage, deleteTestMessage, resetTestMessages, handleChangeTestMessageSearchText } = useTypedStoreActions((actions) => actions.testMessageModel);
 
 	return (
 		<>

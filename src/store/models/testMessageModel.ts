@@ -2,13 +2,13 @@ import { Action, action, computed, Computed } from "easy-peasy";
 
 const testMessageInitialState = ["original001", "original002"];
 
-export interface ShowcaseModel {
+export interface TestMessageModel {
 	// state
 	testMessages: string[];
 	testMessagesSearchText: string;
 
 	// computed state
-	filteredTestMessages: Computed<ShowcaseModel, string[]>;
+	filteredTestMessages: Computed<this, string[]>;
 
 	// actions
 	addTestMessage: Action<this>;
@@ -19,7 +19,7 @@ export interface ShowcaseModel {
 	// thunk
 }
 
-export const showcaseModel: ShowcaseModel = {
+export const testMessageModel: TestMessageModel = {
 	// state
 	testMessages: testMessageInitialState,
 	testMessagesSearchText: "",
