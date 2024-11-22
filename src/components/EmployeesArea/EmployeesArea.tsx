@@ -1,5 +1,6 @@
 import { useTypedStoreState } from "../../store/hooks";
 import { Example } from "../Example"
+import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
@@ -9,7 +10,7 @@ export const EmployeesArea = () => {
 		<section className="pageEasyPeasy">
 			<Example title="employee objects loaded via API with full CRUD functionality">
 				{loadingStatus !== "finished" ? (
-					<p>loading...</p>
+					<WaitSpinner/>
 				) : (
 					<table className="employees">
 						<thead>
