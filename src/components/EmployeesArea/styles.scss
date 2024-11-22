@@ -1,4 +1,14 @@
 section.pageEasyPeasy {
+	table.fadeIn {
+		opacity: 1;
+		transition: opacity .5s ease-in;
+	}
+
+	table.fadeOut {
+		opacity: 0;
+		transition: opacity .5s ease-out;
+	}
+
 	table.employees {
 		border-collapse: separate;
 		thead {
@@ -6,15 +16,15 @@ section.pageEasyPeasy {
 				th {
 					font-weight: normal;
 					font-variant: small-caps;
-					font-size: .8rem;
+					font-size: 0.8rem;
 					text-align: left;
 					opacity: 70%;
 				}
 				th.dpId {
 					font-family: monospace;
 					font-variant: normal;
-					font-size: .7rem;
-					padding-top: .3rem;
+					font-size: 0.7rem;
+					padding-top: 0.3rem;
 				}
 			}
 		}
@@ -22,8 +32,8 @@ section.pageEasyPeasy {
 			tr {
 				td {
 					background-color: #ccc;
-					font-size: .9rem;
-					padding: .3rem;
+					font-size: 0.9rem;
+					padding: 0.3rem;
 				}
 				td.dpId {
 					font-family: monospace;
