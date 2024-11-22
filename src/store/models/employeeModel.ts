@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { action, Action, Thunk, thunk } from "easy-peasy";
+import { action, Action, computed, Computed, Thunk, thunk } from "easy-peasy";
 import { Employee, LoadingStatus } from "../../types";
 import * as config from "../../config";
 import axios from "axios";
@@ -8,8 +8,10 @@ export interface EmployeeModel {
 	// state
 	employees: Employee[];
 	loadingStatus: LoadingStatus;
+	searchText: string;
 
 	// computed state
+	filteredEmployees: Computed<this, Employee[]>;
 
 	// actions
 	_setEmployees: Action<this, Employee[]>;
@@ -23,8 +25,20 @@ export const employeeModel: EmployeeModel = {
 	// state
 	employees: [],
 	loadingStatus: "readyToLoad",
+	searchText: "",
 
 	// computed state
+	filteredEmployees: computed((state) => {
+		if (state.searchText.trim() === "") {
+			return state.employees;
+		} else {
+			return state.employees.filter((m) =>
+				m.lastName
+					.toLowerCase()
+					.includes(state.searchText.toLowerCase())
+			);
+		}
+	}),
 
 	// actions
 	_setEmployees: action((store, employees) => {

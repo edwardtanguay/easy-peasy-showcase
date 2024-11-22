@@ -4,7 +4,7 @@ import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { employees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
+	const {filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
@@ -30,7 +30,7 @@ export const EmployeesArea = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{employees.map(employee => {
+								{filteredEmployees.map(employee => {
 									return (
 										<tr>
 											<td className="dpId">{employee.dpodId}</td>
