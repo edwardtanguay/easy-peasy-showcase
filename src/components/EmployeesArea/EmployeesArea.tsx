@@ -25,12 +25,12 @@ export const EmployeesArea = () => {
 							return (
 								<tr>
 									<td className="dpId">{employee.dpodId}</td>
-									<td className="dpLine">James</td>
-									<td className="dpLine">Smith</td>
-									<td className="dpDate">2024-11-22</td>
-									<td className="dpLine">Sales</td>
-									<td className="dpYesNo">Yes</td>
-									<td className="dpWholeNumber">12</td>
+									<td className="dpLine">{employee.firstName}</td>
+									<td className="dpLine">{employee.lastName}</td>
+									<td className="dpDate">{employee.dateOfBirth}</td>
+									<td className="dpLine">{employee.department}</td>
+									<td className="dpYesNo">{employee.isActive ? 'yes' : 'no'}</td>
+									<td className="dpWholeNumber">{employee.yearsOfExperience}</td>
 								</tr>
 							)
 						})}

@@ -5,13 +5,11 @@ import { useTypedStoreActions } from "./store/hooks"
 import { useEffect } from "react";
 import { Container } from "@mui/material";
 
-
 function App() {
-
-	const { loadFrontendFlashcardsThunk: loadAllFlashcardsThunk } = useTypedStoreActions((actions) => actions.flashcardModel);
+	const initalize = useTypedStoreActions((actions) => actions.mainModel.initialize);
 
 	useEffect(() => {
-		loadAllFlashcardsThunk()
+		initalize();
 	}, [])
 	return (
 		<Container className="bg-gray-400 rounded-lg w-full py-4 md:w-[60rem] mt-0 md:mt-6">
