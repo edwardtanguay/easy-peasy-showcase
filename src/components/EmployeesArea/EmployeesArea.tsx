@@ -11,7 +11,7 @@ export const EmployeesArea = () => {
 				<table className="employees">
 					<thead>
 						<tr>
-							<th>First Name</th>
+							<th className="dpLine">First Name</th>
 							<th>Last Name</th>
 							<th>Birthdate</th>
 							<th>Department</th>
@@ -21,22 +21,12 @@ export const EmployeesArea = () => {
 					</thead>
 					<tbody>
 						<tr>
-							<td>James</td>
-							<td>Smith</td>
-							<td>29</td>
-							<td>Sales</td>
-						</tr>
-						<tr>
-							<td>Maria</td>
-							<td>Garcia</td>
-							<td>34</td>
-							<td>Marketing</td>
-						</tr>
-						<tr>
-							<td>Robert</td>
-							<td>Johnson</td>
-							<td>41</td>
-							<td>Development</td>
+							<td className="dpLine">James</td>
+							<td className="dpLine">Smith</td>
+							<td className="dpDate">2024-11-22</td>
+							<td className="dpLine">Sales</td>
+							<td className="dpYesNo">Yes</td>
+							<td className="dpWholeNumber">12</td>
 						</tr>
 					</tbody>
 				</table>

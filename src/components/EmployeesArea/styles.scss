@@ -1,5 +1,34 @@
 section.pageEasyPeasy {
 	table.employees {
-		color: red;
+		border-collapse: separate;
+		thead {
+			tr {
+				th {
+					font-weight: normal;
+					font-variant: small-caps;
+					font-size: .8rem;
+					text-align: left;
+					opacity: 70%;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td {
+					background-color: #ccc;
+					font-size: .9rem;
+					padding: .3rem;
+				}
+				td.dpLine {
+					min-width: 10rem;
+				}
+				td.dpYesNo {
+					text-align: center;
+				}
+				td.dpWholeNumber {
+					text-align: right;
+				}
+			}
+		}
 	}
 }
