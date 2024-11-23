@@ -5,11 +5,11 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { filteredEmployees, loadingStatus, searchText, showIds } = useTypedStoreState((state) => state.employeeModel);
+	const { employees, filteredEmployees, loadingStatus, searchText, showIds } = useTypedStoreState((state) => state.employeeModel);
 	const { handleSearchTextChange, handleChangeSort, handleCancelSearch, handleToggleShowIds } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
-		<section className="pageEasyPeasy w-fit p-6 rounded">
+		<section className="pageEasyPeasy w-fit p-6 rounded min-w-[50rem]">
 			{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 				<WaitSpinner />
 			)}
@@ -26,7 +26,11 @@ export const EmployeesArea = () => {
 							</div>
 						)}
 						<p className="ml-6 text-sm italic text-gray-900 w-full text-right -mt-1">
-							showing 3 of 29 records
+							{filteredEmployees.length === employees.length ? (
+								<span>showing all {employees.length} records</span>
+							) : (
+								<span>showing {filteredEmployees.length} of {employees.length} records</span>
+							)}
 						</p>
 					</form>
 					{filteredEmployees.length === 0 && (
