@@ -37,15 +37,21 @@ export const employeeModel: EmployeeModel = {
 
 	// computed state
 	filteredEmployees: computed((state) => {
+		let _filteredEmployees:Employee[] = [];
+
+		//filter
 		if (state.searchText.trim() === "") {
-			return state.employees;
+			_filteredEmployees = state.employees;
 		} else {
-			return state.employees.filter((m) =>
+			_filteredEmployees = state.employees.filter((m) =>
 				m.bulkSearchText
 					.toLowerCase()
 					.includes(state.searchText.toLowerCase())
 			);
 		}
+
+		//sort
+		return _filteredEmployees;	
 	}),
 
 	// actions
