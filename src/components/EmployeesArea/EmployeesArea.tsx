@@ -12,7 +12,7 @@ export const EmployeesArea = () => {
 		<section className="pageEasyPeasy">
 			{loadingStatus === "finished" && (
 				<form className="my-2 flex gap-1">
-					<input placeholder="search" value={searchText} onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+					<input placeholder="search" autoFocus={true} value={searchText} onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
 					{searchText !== "" && (
 						<div className="p-[.1rem]">
 							<MdOutlineCancel className="text-slate-500 text-[2rem] hover:text-slate-600 cursor-pointer" onClick={() => handleCancelSearch()} />
