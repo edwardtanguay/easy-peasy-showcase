@@ -32,7 +32,7 @@ export const employeeModel: EmployeeModel = {
 	employees: [],
 	loadingStatus: "readyToLoad",
 	searchText: "",
-	sortField: "none",
+	sortField: "firstName",
 	sortDirection: "asc",
 
 	// computed state
@@ -51,16 +51,15 @@ export const employeeModel: EmployeeModel = {
 		}
 
 		//sort
-		if (state.sortField !== "none") {
-			if (state.sortDirection === "asc") {
-				_filteredEmployees.sort((a, b) =>
-					a.firstName > b.firstName ? 1 : -1
-				);
-			} else {
-				_filteredEmployees.sort((a, b) =>
-					a.firstName < b.firstName ? 1 : -1
-				);
-			}
+		const sortField = state.sortField as keyof Employee;
+		if (state.sortDirection === "asc") {
+			_filteredEmployees.sort((a, b) =>
+				a[sortField] > b[sortField] ? 1 : -1
+			);
+		} else {
+			_filteredEmployees.sort((a, b) =>
+				a[sortField] < b[sortField] ? 1 : -1
+			);
 		}
 
 		return _filteredEmployees;

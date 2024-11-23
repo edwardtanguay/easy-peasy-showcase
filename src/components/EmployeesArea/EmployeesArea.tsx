@@ -12,7 +12,6 @@ export const EmployeesArea = () => {
 			<Example title="employee objects via API with full CRUD functionality">
 				<form className="my-2 flex gap-3">
 					<input placeholder="search" onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
-					({sortField}/{sortDirection})
 				</form>
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />

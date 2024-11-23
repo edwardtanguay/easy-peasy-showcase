@@ -43,6 +43,6 @@ export type Employee = RawEmployee & {
 
 export type LoadingStatus = "readyToLoad" | "loading" | "error" | "finished";
 
-export type SortField = "none" | "firstName" | "lastName" | "dateOfBirth" | "department" | "isActive" | "yearsOfExperience";
+export type SortField = "firstName" | "lastName" | "dateOfBirth" | "department" | "isActive" | "yearsOfExperience";
 
 export type SortDirection = "ascending" | "descending";
