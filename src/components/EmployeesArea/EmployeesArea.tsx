@@ -5,16 +5,16 @@ import { MdOutlineCancel } from "react-icons/md";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
-	const { handleSearchTextChange, handleChangeSort } = useTypedStoreActions((actions) => actions.employeeModel);
+	const { filteredEmployees, loadingStatus, searchText } = useTypedStoreState((state) => state.employeeModel);
+	const { handleSearchTextChange, handleChangeSort, handleCancelSearch } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects via API with full CRUD functionality">
 				<form className="my-2 flex gap-1">
-					<input placeholder="search" onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+					<input placeholder="search" value={searchText} onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
 					<div className="p-[.1rem]">
-					<MdOutlineCancel className="text-slate-500 text-[2rem]" />
+						<MdOutlineCancel className="text-slate-500 text-[2rem]" onClick={() => handleCancelSearch()} />
 					</div>
 				</form>
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (

@@ -23,6 +23,7 @@ export interface EmployeeModel {
 	_setLoadingStatus: Action<this, LoadingStatus>;
 	handleSearchTextChange: Action<this, string>;
 	handleChangeSort: Action<this, SortField>;
+	handleCancelSearch: Action<this>;
 
 	// thunk
 	loadEmployeesThunk: Thunk<this>;
@@ -88,6 +89,9 @@ export const employeeModel: EmployeeModel = {
 			state.sortDirection = "asc";
 		}
 		state.isSorted = true;
+	}),
+	handleCancelSearch: action((state) => {
+		state.searchText = "";
 	}),
 
 	// thunks
