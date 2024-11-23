@@ -1,6 +1,7 @@
 import { useTypedStoreActions, useTypedStoreState } from "../../store/easy-peasy-hooks";
 import { Example } from "../Example"
 import { WaitSpinner } from "../WaitSpinner";
+import { MdOutlineCancel } from "react-icons/md";
 import './styles.scss'
 
 export const EmployeesArea = () => {
@@ -10,8 +11,11 @@ export const EmployeesArea = () => {
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects via API with full CRUD functionality">
-				<form className="my-2 flex gap-3">
+				<form className="my-2 flex gap-1">
 					<input placeholder="search" onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+					<div className="p-[.1rem]">
+					<MdOutlineCancel className="text-slate-500 text-[2rem]" />
+					</div>
 				</form>
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
