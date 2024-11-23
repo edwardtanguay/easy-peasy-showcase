@@ -51,14 +51,16 @@ export const employeeModel: EmployeeModel = {
 		}
 
 		//sort
-		if (state.sortDirection === "asc") {
-			_filteredEmployees.sort((a, b) =>
-				a.firstName > b.firstName ? 1 : -1
-			);
-		} else {
-			_filteredEmployees.sort((a, b) =>
-				a.firstName < b.firstName ? 1 : -1
-			);
+		if (state.sortField !== "none") {
+			if (state.sortDirection === "asc") {
+				_filteredEmployees.sort((a, b) =>
+					a.firstName > b.firstName ? 1 : -1
+				);
+			} else {
+				_filteredEmployees.sort((a, b) =>
+					a.firstName < b.firstName ? 1 : -1
+				);
+			}
 		}
 
 		return _filteredEmployees;
