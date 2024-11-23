@@ -9,7 +9,7 @@ export const EmployeesArea = () => {
 	const { handleSearchTextChange, handleChangeSort, handleCancelSearch, handleToggleShowIds } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
-		<section className="pageEasyPeasy w-fit">
+		<section className="pageEasyPeasy w-fit bg-gray-500 p-6 rounded">
 			{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 				<WaitSpinner />
 			)}
@@ -25,7 +25,7 @@ export const EmployeesArea = () => {
 								<MdOutlineCancel className="text-slate-500 text-[2rem] hover:text-slate-600 cursor-pointer" onClick={() => handleCancelSearch()} />
 							</div>
 						)}
-						<p className="ml-6 text-sm italic text-gray-600 w-full text-right -mt-2">
+						<p className="ml-6 text-sm italic text-gray-900 w-full text-right -mt-1">
 							showing 3 of 29 records
 						</p>
 					</form>
