@@ -1,5 +1,5 @@
 import { EmployeesArea } from "../components/EmployeesArea/EmployeesArea";
-import { TestMessagesArea } from "../components/TestMessagesArea";
+// import { TestMessagesArea } from "../components/TestMessagesArea";
 
 export const PageEasyPeasy = () => {
 	return (
@@ -7,7 +7,7 @@ export const PageEasyPeasy = () => {
 			<h2 className="text-2xl">Easy Peasy Showcase</h2>
 			<p className="mt-2 mb-3">This page shows examples of using Easy-Peasy Redux in various ways.</p>
 			<EmployeesArea />
-			<TestMessagesArea />
+			{/* <TestMessagesArea /> */}
 		</>
 	)
 }

@@ -6,20 +6,22 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { filteredEmployees, loadingStatus, searchText } = useTypedStoreState((state) => state.employeeModel);
+	const { filteredEmployees, loadingStatus, searchText, showIdColumn } = useTypedStoreState((state) => state.employeeModel);
 	const { handleSearchTextChange, handleChangeSort, handleCancelSearch } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
 			<Example title="employee objects via API with full CRUD functionality">
-				<form className="my-2 flex gap-1">
-					<input placeholder="search" value={searchText} onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
-					{searchText !== "" && (
-						<div className="p-[.1rem]">
-							<MdOutlineCancel className="text-slate-500 text-[2rem] hover:text-slate-600 cursor-pointer" onClick={() => handleCancelSearch()} />
-						</div>
-					)}
-				</form>
+				{loadingStatus === "finished" && (
+					<form className="my-2 flex gap-1">
+						<input placeholder="search" value={searchText} onChange={(e) => handleSearchTextChange(e.target.value)} className="bg-gray-300 rounded p-1 text-lg" />
+						{searchText !== "" && (
+							<div className="p-[.1rem]">
+								<MdOutlineCancel className="text-slate-500 text-[2rem] hover:text-slate-600 cursor-pointer" onClick={() => handleCancelSearch()} />
+							</div>
+						)}
+					</form>
+				)}
 				{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 					<WaitSpinner />
 				)}
@@ -31,7 +33,9 @@ export const EmployeesArea = () => {
 						<>
 							<thead>
 								<tr>
-									<th className="dpId">dpodid</th>
+									{showIdColumn && (
+										<th className="dpId">dpodid</th>
+									)}
 									<th onClick={() => handleChangeSort("firstName")}><span>First Name</span></th>
 									<th onClick={() => handleChangeSort("lastName")}><span>Last Name</span></th>
 									<th onClick={() => handleChangeSort("dateOfBirth")}><span>Date of Birth</span></th>
@@ -45,7 +49,9 @@ export const EmployeesArea = () => {
 								{filteredEmployees.map(employee => {
 									return (
 										<tr key={employee.id}>
-											<td className="dpId">{employee.dpodId}</td>
+											{showIdColumn && (
+												<td className="dpId">{employee.dpodId}</td>
+											)}
 											<td className="dpLine">{employee.firstName}</td>
 											<td className="dpLine">{employee.lastName}</td>
 											<td className="dpDate">{employee.dateOfBirth}</td>
@@ -57,6 +63,9 @@ export const EmployeesArea = () => {
 									)
 								})}
 							</tbody>
+							<tfoot>
+								<span className="text-xs ml-1 text-gray-700 hover:underline cursor-pointer">show ids</span>
+							</tfoot>
 						</>
 					)}
 				</table>
