@@ -26,12 +26,12 @@ export const EmployeesArea = () => {
 							<thead>
 								<tr>
 									<th className="dpId">dpodid</th>
-									<th className="cursor-pointer" onClick={() => handleChangeSort("firstName")}>First Name</th>
-									<th className="cursor-pointer" onClick={() => handleChangeSort("lastName")}>Last Name</th>
-									<th>Birthdate</th>
-									<th>Department</th>
-									<th>Is Active</th>
-									<th>Years Experience</th>
+									<th  onClick={() => handleChangeSort("firstName")}><span>First Name</span></th>
+									<th className="cursor-pointer select-none" onClick={() => handleChangeSort("lastName")}>Last Name</th>
+									<th className="cursor-pointer select-none" onClick={() => handleChangeSort("dateOfBirth")}>Date of Birth</th>
+									<th className="cursor-pointer select-none" onClick={() => handleChangeSort("department")}>Department</th>
+									<th className="cursor-pointer select-none" onClick={() => handleChangeSort("isActive")}>Is Active</th>
+									<th className="cursor-pointer select-none" onClick={() => handleChangeSort("yearsOfExperience")}>Years Experience</th>
 								</tr>
 							</thead>
 							<tbody>

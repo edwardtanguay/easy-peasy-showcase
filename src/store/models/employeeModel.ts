@@ -52,14 +52,20 @@ export const employeeModel: EmployeeModel = {
 	_setEmployees: action((state, employees) => {
 		state.employees = employees;
 	}),
-	_setLoadingStatus: action((state, loadindStatus) => {
-		state.loadingStatus = loadindStatus;
+	_setLoadingStatus: action((state, loadingStatus) => {
+		state.loadingStatus = loadingStatus;
 	}),
 	handleSearchTextChange: action((state, searchText) => {
 		state.searchText = searchText;
 	}),
 	handleChangeSort: action((state, sortField) => {
-		state.sortField = sortField;
+		if (state.sortField === sortField) {
+			state.sortDirection =
+				state.sortDirection === "asc" ? "desc" : "asc";
+		} else {
+			state.sortField = sortField;
+			state.sortDirection = "asc";
+		}
 	}),
 
 	// thunks

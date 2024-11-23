@@ -2,13 +2,13 @@ section.pageEasyPeasy {
 	table.fadeIn {
 		opacity: 1;
 		filter: blur(0);
-		transition: filter .5s ease-in;
+		transition: filter 0.5s ease-in;
 	}
 
 	table.fadeOut {
 		opacity: 0;
 		filter: blur(5px);
-		transition: filter .5s ease-out;
+		transition: filter 0.5s ease-out;
 	}
 
 	table.employees {
@@ -21,6 +21,13 @@ section.pageEasyPeasy {
 					font-size: 0.8rem;
 					text-align: left;
 					opacity: 70%;
+					span {
+						cursor: pointer;
+						user-select: none;
+					}
+					span:hover {
+						text-decoration: underline;
+					}
 				}
 				th.dpId {
 					font-family: monospace;
