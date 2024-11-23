@@ -14,7 +14,7 @@ export interface EmployeeModel {
 	isSorted: boolean;
 	sortField: SortField;
 	sortDirection: SortDirection;
-	showIdColumn: boolean;
+	showIds: boolean;
 
 	// computed state
 	filteredEmployees: Computed<this, Employee[]>;
@@ -38,7 +38,7 @@ export const employeeModel: EmployeeModel = {
 	isSorted: false,
 	sortField: "firstName",
 	sortDirection: "asc",
-	showIdColumn: false,
+	showIds: false,
 
 	// computed state
 	filteredEmployees: computed((state) => {
