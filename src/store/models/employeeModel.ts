@@ -11,6 +11,7 @@ export interface EmployeeModel {
 	employees: Employee[];
 	loadingStatus: LoadingStatus;
 	searchText: string;
+	isSorted: boolean;
 	sortField: SortField;
 	sortDirection: SortDirection;
 
@@ -32,6 +33,7 @@ export const employeeModel: EmployeeModel = {
 	employees: [],
 	loadingStatus: "readyToLoad",
 	searchText: "",
+	isSorted: false,
 	sortField: "firstName",
 	sortDirection: "asc",
 
@@ -51,15 +53,17 @@ export const employeeModel: EmployeeModel = {
 		}
 
 		//sort
-		const sortField = state.sortField as keyof Employee;
-		if (state.sortDirection === "asc") {
-			_filteredEmployees.sort((a, b) =>
-				a[sortField] > b[sortField] ? 1 : -1
-			);
-		} else {
-			_filteredEmployees.sort((a, b) =>
-				a[sortField] < b[sortField] ? 1 : -1
-			);
+		if (state.isSorted) {
+			const sortField = state.sortField as keyof Employee;
+			if (state.sortDirection === "asc") {
+				_filteredEmployees.sort((a, b) =>
+					a[sortField] > b[sortField] ? 1 : -1
+				);
+			} else {
+				_filteredEmployees.sort((a, b) =>
+					a[sortField] < b[sortField] ? 1 : -1
+				);
+			}
 		}
 
 		return _filteredEmployees;
@@ -83,6 +87,7 @@ export const employeeModel: EmployeeModel = {
 			state.sortField = sortField;
 			state.sortDirection = "asc";
 		}
+		state.isSorted = true;
 	}),
 
 	// thunks
