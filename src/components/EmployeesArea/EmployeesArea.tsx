@@ -6,7 +6,7 @@ import './styles.scss'
 
 export const EmployeesArea = () => {
 	const { filteredEmployees, loadingStatus, searchText, showIds } = useTypedStoreState((state) => state.employeeModel);
-	const { handleSearchTextChange, handleChangeSort, handleCancelSearch } = useTypedStoreActions((actions) => actions.employeeModel);
+	const { handleSearchTextChange, handleChangeSort, handleCancelSearch, handleToggleShowIds } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
 		<section className="pageEasyPeasy">
@@ -62,7 +62,7 @@ export const EmployeesArea = () => {
 							})}
 						</tbody>
 						<tfoot>
-							<span className="text-xs ml-1 text-gray-700 hover:underline cursor-pointer">show ids</span>
+							<span className="text-xs ml-1 text-gray-700 hover:underline cursor-pointer" onClick={() => handleToggleShowIds()}>show ids</span>
 						</tfoot>
 					</>
 				)}

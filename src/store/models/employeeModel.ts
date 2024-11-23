@@ -25,6 +25,7 @@ export interface EmployeeModel {
 	handleSearchTextChange: Action<this, string>;
 	handleChangeSort: Action<this, SortField>;
 	handleCancelSearch: Action<this>;
+	handleToggleShowIds: Action<this>;
 
 	// thunk
 	loadEmployeesThunk: Thunk<this>;
@@ -94,6 +95,9 @@ export const employeeModel: EmployeeModel = {
 	}),
 	handleCancelSearch: action((state) => {
 		state.searchText = "";
+	}),
+	handleToggleShowIds: action((state) => {
+		state.showIds = !state.showIds;
 	}),
 
 	// thunks
