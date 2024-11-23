@@ -2,6 +2,7 @@ import { useTypedStoreActions, useTypedStoreState } from "../../store/easy-peasy
 import { Example } from "../Example"
 import { WaitSpinner } from "../WaitSpinner";
 import { MdOutlineCancel } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import './styles.scss'
 
 export const EmployeesArea = () => {
@@ -37,6 +38,7 @@ export const EmployeesArea = () => {
 									<th onClick={() => handleChangeSort("department")}><span>Department</span></th>
 									<th onClick={() => handleChangeSort("isActive")}><span>Is Active</span></th>
 									<th onClick={() => handleChangeSort("yearsOfExperience")}><span>Years Experience</span></th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -50,6 +52,7 @@ export const EmployeesArea = () => {
 											<td className="dpLine">{employee.department}</td>
 											<td className="dpYesNo">{employee.isActive ? 'yes' : 'no'}</td>
 											<td className="dpWholeNumber">{employee.yearsOfExperience}</td>
+											<td><RiDeleteBin6Line className="cursor-pointer text-red-900 hover:text-red-700" /></td>
 										</tr>
 									)
 								})}
