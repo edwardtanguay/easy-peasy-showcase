@@ -4,7 +4,7 @@ import { WaitSpinner } from "../WaitSpinner";
 import './styles.scss'
 
 export const EmployeesArea = () => {
-	const { filteredEmployees, loadingStatus, sortField, sortDirection } = useTypedStoreState((state) => state.employeeModel);
+	const { filteredEmployees, loadingStatus } = useTypedStoreState((state) => state.employeeModel);
 	const { handleSearchTextChange, handleChangeSort } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
