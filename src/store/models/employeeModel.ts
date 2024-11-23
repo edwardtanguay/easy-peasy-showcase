@@ -37,7 +37,7 @@ export const employeeModel: EmployeeModel = {
 
 	// computed state
 	filteredEmployees: computed((state) => {
-		let _filteredEmployees:Employee[] = [];
+		let _filteredEmployees: Employee[] = [];
 
 		//filter
 		if (state.searchText.trim() === "") {
@@ -51,7 +51,17 @@ export const employeeModel: EmployeeModel = {
 		}
 
 		//sort
-		return _filteredEmployees;	
+		if (state.sortDirection === "asc") {
+			_filteredEmployees.sort((a, b) =>
+				a.firstName > b.firstName ? 1 : -1
+			);
+		} else {
+			_filteredEmployees.sort((a, b) =>
+				a.firstName < b.firstName ? 1 : -1
+			);
+		}
+
+		return _filteredEmployees;
 	}),
 
 	// actions
