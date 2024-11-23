@@ -9,12 +9,12 @@ export const EmployeesArea = () => {
 	const { handleSearchTextChange, handleChangeSort, handleCancelSearch, handleToggleShowIds } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
-		<section className="pageEasyPeasy">
+		<section className="pageEasyPeasy w-fit">
 			{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 				<WaitSpinner />
 			)}
 			{loadingStatus === "error" && (
-				<p className="text-red-800 italic">Sorry, the data couldn't be loaded, please contact the website administrator.</p>
+				<p className="italic">Sorry, the data couldn't be loaded, please contact the website administrator.</p>
 			)}
 			{loadingStatus === "finished" && (
 				<>
@@ -25,6 +25,9 @@ export const EmployeesArea = () => {
 								<MdOutlineCancel className="text-slate-500 text-[2rem] hover:text-slate-600 cursor-pointer" onClick={() => handleCancelSearch()} />
 							</div>
 						)}
+						<p className="ml-6 text-sm italic text-gray-600 w-full text-right -mt-2">
+							showing 3 of 29 records
+						</p>
 					</form>
 					{filteredEmployees.length === 0 && (
 						<p className="mt-5 text-2xl text-gray-600 italic">No records match your search.</p>
