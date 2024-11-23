@@ -9,7 +9,7 @@ export const EmployeesArea = () => {
 	const { handleSearchTextChange, handleChangeSort, handleCancelSearch, handleToggleShowIds } = useTypedStoreActions((actions) => actions.employeeModel);
 
 	return (
-		<section className="pageEasyPeasy w-fit bg-gray-500 p-6 rounded">
+		<section className="pageEasyPeasy w-fit p-6 rounded">
 			{(loadingStatus === "readyToLoad" || loadingStatus === "loading") && (
 				<WaitSpinner />
 			)}
