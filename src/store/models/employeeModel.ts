@@ -91,6 +91,11 @@ export const employeeModel: EmployeeModel = {
 			state.sortField = sortField;
 			state.sortDirection = "asc";
 		}
+
+		// override if it's the first click
+		if (!state.isSorted) {
+			state.sortDirection = "asc";
+		}
 		state.isSorted = true;
 	}),
 	handleCancelSearch: action((state) => {
